@@ -4,7 +4,9 @@
 :root{
   --primary-color:#14B8A6;
   --second-color:#6366f1;
+  --hover-color:#818cf8;
   --bg-color:#e5e7eb;
+  --rem-web-tepmlate:20px;
 }
 
 *{
@@ -22,4 +24,13 @@ body{
     font-family: 'Poppins', sans-serif;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+button {
+   cursor: pointer;
+}
+ul,li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
 }

@@ -5,14 +5,17 @@ const routes = [
    {
       path: '/',
       component: Home,
+      name: 'Home',
    },
    {
       path: '/popular',
       component: Popular,
+      name: 'Popular',
    },
    {
       path: '/genre',
       component: Genre,
+      name: 'Genre',
    },
 ];
 

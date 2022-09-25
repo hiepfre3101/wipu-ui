@@ -1,11 +1,11 @@
 .wrapper{
     min-width: 1200px;
     height: 1000px;
-    display: flex;
-    justify-content: space-between;
     background-color: var(--bg-color);
-    padding: 2.5rem;
+    padding:23px;
 }
 .container{
-    flex: 1;
+    max-width: 100%;
+    margin-left: 25%;
+    padding: 40px;
 }
