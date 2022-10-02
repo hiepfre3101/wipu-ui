@@ -1,4 +1,5 @@
 import classNames from 'classnames/bind';
+import { SaveIcon } from '~/assets/Icon';
 import { Button } from '~/components/Button';
 import { Search } from '../Search';
 
@@ -11,8 +12,8 @@ function Header() {
          <p className={cx('label')}>Welcome!</p>
          <Search />
          <div className={cx('auth')}>
-            <Button roundXl className={cx('auth-btn')}>Login</Button>
-            <Button roundXl className={cx('auth-btn')}>Saved</Button>
+            <Button roundXl className={cx('auth-btn')} large>Login</Button>
+            <Button roundXl className={cx('auth-btn')} large leftIcon={<SaveIcon/>}>Saved</Button>
          </div>
       </div>
    );

@@ -61,12 +61,28 @@ export const GlassIcon = ({ classname, width = '20px', height = '20px' }) => (
       strokeLinecap="round"
       strokeLinejoin="round"
       className={classname}
-      ariaHidden="true"
+      aria-hidden="true"
       height={width}
       width={height}
       xmlns="http://www.w3.org/2000/svg"
    >
       <circle cx="11" cy="11" r="8"></circle>
       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+   </svg>
+);
+export const SaveIcon = ({ classname, width = '20px', height = '20px' }) => (
+   <svg
+      className={classname}
+      stroke="currentColor"
+      fill="white"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      height={height}
+      width={width}
+      xmlns="http://www.w3.org/2000/svg"
+   >
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
    </svg>
 );

@@ -1,6 +1,7 @@
 import Home from '~/pages/Home/Home';
 import Popular from '~/pages/Popular/Popular';
 import Genre from '~/pages/Genre/Genre';
+import Watch from '~/pages/Watch/Watch';
 const routes = [
    {
       path: '/',
@@ -16,6 +17,11 @@ const routes = [
       path: '/genre',
       component: Genre,
       name: 'Genre',
+   },
+   {
+      path: '/watch',
+      component: Watch,
+      name: 'Watch',
    },
 ];
 
