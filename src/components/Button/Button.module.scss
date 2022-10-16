@@ -15,10 +15,10 @@
   border-radius: 100px;
 }
 .roundL{
-   
+   border-radius: 20px;
 }
 .roundM{
- border-radius: 10px;
+ border-radius: 5px;
 }
 .primary{
  min-width: 80px;
@@ -36,12 +36,14 @@
   background-color: white;
 }
 .disabled{
-  
+  color: rgba(22, 24, 35, 0.34);
 }
 .icon--left{
   display: block;
   margin-top: 5px;
 }
+
+
 //custom classname
 .nav-btn{
     width: 100%;
@@ -75,4 +77,22 @@
     background: linear-gradient(320deg, rgba(20,184,166,1) 1%, rgb(77, 94, 252) 100%);
     transform: scale(1.05) translateY(-3px);
   }
+}
+
+.btn-login{
+  width: 300px;
+  background-color: white;
+  border: 1px solid rgba(51,51,51,0.3);
+}
+.submit-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+.btn-sendcode{
+  height: 100%;
+  border: 1px solid rgba(51,51,51,0.3);
+  font-size: 15px;
+  cursor: not-allowed;
 }

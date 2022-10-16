@@ -30,6 +30,7 @@ function Search() {
       };
       fetchApi();
    }, [finalValue]);
+   
    const handleSearch = (e) => {
       const searchValue = e.target.value;
       if (!searchValue.startsWith(' ') || searchValue !== '') {

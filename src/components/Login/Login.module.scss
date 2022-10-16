@@ -1,0 +1,54 @@
+.form-wrapper{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+    label{
+        font-size: 15px;
+    }
+}
+.other-login{
+    cursor: pointer;
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.label-block{
+    display: flex;
+    justify-content:space-between;
+}
+.select-input{
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.select-icon{
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+.form-group{
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(241,241,241,1);
+    padding:  0 3px;
+}
+.form-control{
+    height: 100%;
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    padding: 3px 10px;
+    font-size: 18px;
+}
+::placeholder{
+    color: #bcbcc0;
+    font-size: 15px;
+}
