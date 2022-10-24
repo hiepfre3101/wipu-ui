@@ -1,0 +1,117 @@
+.wrapper{
+    max-width: 100%;
+    width: 900px;
+    margin: auto;
+    height: 300px;
+    border-radius: 30px;
+    position: relative;
+    top: 20px;
+}
+.bg-overlay{
+    width: 100%;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.bg-hero{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    border-radius: 20px;
+}
+.main-block{
+    width: 100%;
+    height: 300px;
+    position: absolute;
+    top:0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.left-block{
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    & .title{
+        color: white;
+        font-size: 35px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        width: 400px;
+    }
+}
+.btn-watch{
+    display: block;
+    padding: 9px 18px !important;
+    max-width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: rgb(45 212 191);
+    font-weight: 600;
+    box-shadow: 2px 2px 20px rgb(45 212 191);
+    transition: 0.3s;
+    &:hover{
+        background-color: rgb(20 184 166);
+        opacity: 1;
+        box-shadow: 2px 2px 20px rgb(20 184 166);
+       transform: scale(1.1);
+    }
+ }
+.right-block{
+    width: 25%;
+    height: 150px; 
+    padding: 10px;
+    border-top-left-radius:20px ;
+    border-bottom-left-radius:20px ;
+    background-color: rgba(255, 255, 255, 0.314);
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.next-img{
+    width: 50%;
+    border-radius: 8px;
+    transition: 0.5s;
+    flex: 1;
+   &:first-child{
+    animation: nextSlide 2s  infinite ;
+   } 
+    &:hover{
+        transform: scale(1.1);
+    }
+}
+@keyframes nextSlide {
+    0%{
+        opacity: 1;
+    }    
+    50%{
+        opacity: 0.9;
+    }
+    80%{
+        opacity: 0.7;
+    }
+    100%{
+       opacity: 0.5;
+    }
+}
+.btn-next{
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: var(--second-color);
+    background-color: white;
+    cursor: pointer;
+    z-index: 99;
+}

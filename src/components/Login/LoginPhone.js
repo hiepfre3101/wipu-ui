@@ -24,14 +24,14 @@ function LoginPhone() {
          </div>
          <div className={cx('form-group')}>
             <input type="text" placeholder="Enter your code" className={cx('form-control')} />
-            <Button small disabled className={'btn-sendcode'}>
+            <Button small disabled className={cx('btn-sendcode')}>
                Send Code
             </Button>
          </div>
          <div className={cx('form-control')}>
             <label className={cx('other-login')}>Log in with password</label>
          </div>
-         <Button large roundM className={'submit-btn'}>
+         <Button large roundM className={cx('submit-btn')}>
             Log in{' '}
          </Button>
       </form>

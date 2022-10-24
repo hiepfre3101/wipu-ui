@@ -13,11 +13,11 @@ function FavoriteList() {
       favoriteService
          .getRecommend()
          .then((data) => {
-            setList((prevData) => [...prevData, ...data]);
+            setList(data);
          })
          .catch((err) => console.log(err));
+        
    }, []);
-
    return (
       <div className={cx('favorite-block')}>
          <p className={cx('label')}>FAVOURITES</p>

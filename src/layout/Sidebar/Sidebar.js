@@ -10,16 +10,16 @@ function Sidebar() {
    return (
       <div className={cx('wrapper')}>
          <div className={cx('nav-aside')}>
-            <Button roundM leftIcon={<HomeIcon />} className={'nav-btn'} primary nonBg to={'/'}>
+            <Button roundM leftIcon={<HomeIcon />} className={cx('nav-btn')} primary nonBg to={'/'}>
                Home
             </Button>
-               <Button roundM leftIcon={<StonkeIcon />} className={'nav-btn'} primary nonBg to={'/popular'}>
+               <Button roundM leftIcon={<StonkeIcon />} className={cx('nav-btn')} primary nonBg to={'/popular'}>
                   Popular
                    <svg width={24} height={24} className={cx('animate')}>
                       <circle cx={12} cy={12} r={12} fill={'#99f6e4'}></circle>
                     </svg>
                </Button>
-            <Button roundM leftIcon={<GenreIcon />} className={'nav-btn'} primary nonBg to={'/genre'}>
+            <Button roundM leftIcon={<GenreIcon />} className={cx('nav-btn')} primary nonBg to={'/genre'}>
                Genre
             </Button>
          </div>

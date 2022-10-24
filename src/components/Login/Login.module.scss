@@ -52,3 +52,16 @@
     color: #bcbcc0;
     font-size: 15px;
 }
+.btn-sendcode{
+    height: 100%;
+    border: 1px solid rgba(51,51,51,0.3);
+    font-size: 15px;
+    cursor: not-allowed;
+  }
+  .submit-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
+  

@@ -22,6 +22,20 @@
     justify-content: space-between;
     margin-top: 50px;
 }
+.nav-btn{
+    width: 100%;
+    color: #4b5563; 
+    transition: .15s;
+    &:hover{
+       transform: translateY(-3px);
+        background-color: var(--hover-color);
+        color: white;
+    }
+    + .nav-btn:hover{
+        background-color: #e0e7ff;
+        color: #4b5563;
+    }
+}
 .have-animated{
     width: 100%;
     height: 100%;

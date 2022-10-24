@@ -204,3 +204,36 @@ export const SelectIcon = ({ classname, width = '20px', height = '20px' }) => (
       ></path>
    </svg>
 );
+export const PlayIcon = ({ classname, width = '20px', height = '20px' }) => (
+   <svg
+      className={classname}
+      stroke="currentColor"
+      fill="white"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      height={width}
+      width={height}
+      xmlns="http://www.w3.org/2000/svg"
+   >
+      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+   </svg>
+);
+export const ArrowRightIcon = ({ classname, width = '20px', height = '20px' }) => (
+   <svg
+      stroke="currentColor"
+      fill="none"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={classname}
+      height={width}
+      width={height}
+      xmlns="http://www.w3.org/2000/svg"
+   >
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+   </svg>
+);

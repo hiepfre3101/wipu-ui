@@ -1,5 +1,13 @@
+import { Hero } from '~/components/Hero';
+import classNames from 'classnames/bind';
+import styles from './Home.module.scss';
+const cx = classNames.bind(styles);
 function Home() {
-    return (  <h1>Home page</h1>);
+   return (
+      <div className={cx('wrapper')}>
+         <Hero />
+      </div>
+   );
 }
 
 export default Home;
