@@ -5,7 +5,7 @@ const topRequest = axios.create({
 });
 
 export const get = async (path, option = {}) => {
-   const response = await topRequest.get(path, option);
-   return response.data;
+   const respond = await topRequest.get(path, option);
+   return respond.data;
 };
 export default topRequest;
