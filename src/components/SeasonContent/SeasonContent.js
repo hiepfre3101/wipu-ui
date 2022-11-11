@@ -1,18 +1,22 @@
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames/bind';
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AnimeIdContext } from '../Context/AnimeIdContext';
+import Loading from '~/components/Loading/Loading';
 import * as request from '~/services/seasonAnimeNow';
-import styles from './HomeContent.module.scss';
+import styles from './SeasonContent.module.scss';
 
 const cx = classNames.bind(styles);
-function HomeContent() {
+
+function SeasonContent() {
    const [data, setData] = useState([]);
    const [page, setPage] = useState(1);
    const [loading, setLoading] = useState(true);
+   const animeIdContext = useContext(AnimeIdContext);
    useEffect(() => {
       const fetchApi = async () => {
          const data = await request.getSeasonRequest(page);
@@ -30,7 +34,7 @@ function HomeContent() {
    };
 
    if (loading) {
-      return <h2>Loading...</h2>;
+      return <Loading />;
    } else {
       return (
          <div className={cx('wrapper')}>
@@ -43,7 +47,12 @@ function HomeContent() {
                <h2 className={cx('title')}>This Season</h2>
                <div className={cx('wrap-anime')}>
                   {data.map((item) => (
-                     <Link to={`/watch?id=${item.mal_id}`} className={cx('anime')} key={item.mal_id}>
+                     <Link
+                        to={`/watch?id=${item.mal_id}`}
+                        className={cx('anime')}
+                        key={item.mal_id}
+                        onClick={() => animeIdContext.goToWatch(item.mal_id)}
+                     >
                         <div className={cx('episodes')}>ep.{item.episodes}</div>
                         <img src={item.images.jpg.large_image_url} alt="img" className={cx('img-anime')} />
                         <div className={cx('name-block')}>
@@ -55,7 +64,7 @@ function HomeContent() {
                <div className={cx('btn-block')}>
                   {page === 1 ? null : (
                      <div className={cx('btn-action')}>
-                        <FontAwesomeIcon icon={faArrowLeft}  onClick={handlePrev}/>
+                        <FontAwesomeIcon icon={faArrowLeft} onClick={handlePrev} />
                      </div>
                   )}
                   {page === 6 ? null : (
@@ -70,4 +79,4 @@ function HomeContent() {
    }
 }
 
-export default HomeContent;
+export default SeasonContent;

@@ -1,6 +1,5 @@
 .wrapper{
     max-width: 100%;
-    width: 900px;
     margin: auto;
     height: 300px;
     border-radius: 30px;
@@ -79,7 +78,8 @@
     align-items: center;
 }
 .next-img{
-    width: 50%;
+    width: 8rem;
+    height: 12rem;
     border-radius: 8px;
     transition: 0.5s;
     flex: 1;

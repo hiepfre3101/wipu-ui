@@ -1,7 +1,13 @@
 .wrapper{
+    max-width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+.flex-col--left{
+  width: 40%;
+  display: flex;
+  justify-content: start;
 }
 .label{
     padding: 8px 9px;
@@ -14,7 +20,11 @@
     border-top-right-radius: 30px;
     box-shadow: 0px 4px 10px  #99f6e4;
 }
-.auth{
+.search-wrap{
+ flex: 1;
+ margin-left: 30px;
+}
+.flex-col--right{
     display: flex;
     justify-content: space-around;
 }

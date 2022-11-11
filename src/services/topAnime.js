@@ -1,13 +1,13 @@
 import * as request from '~/utils/topRequest';
 
-export const getTopAnime = async () => {
+export const getTopAnime = async ({ type, limit, filter, page }) => {
    try {
       const respond = await request.get('', {
          params: {
-            type: 'tv',
-            limit: 5,
-            filter: 'airing',
-            page: 1,
+            type,
+            limit,
+            filter,
+            page,
          },
       });
       return respond.data;

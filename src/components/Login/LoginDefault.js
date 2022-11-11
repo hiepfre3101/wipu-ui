@@ -5,7 +5,7 @@ import classNames from 'classnames/bind';
 import { Button } from '../Button';
 import { FacebookIcon, GoogleIcon, UserIcon } from '~/assets/Icon';
 import { FormContext } from '../Context/FormContext';
-import styles from './Modal.module.scss';
+import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 const loginOptions = [
    {

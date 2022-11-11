@@ -5,12 +5,12 @@ import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 
 const cx = classNames.bind(styles);
-function DefaultLayout({children}) {
+function DefaultLayout({ children }) {
    return (
       <div className={cx('wrapper')}>
-         <Sidebar></Sidebar>
+         <div className={cx('sidebar-wrap')}><Sidebar></Sidebar></div>
          <div className={cx('container')}>
-          <Header></Header>
+            <Header></Header>
             <div className={cx('content')}>{children}</div>
          </div>
       </div>

@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import { useMultipleStepForm } from '~/hook';
 import { MULTI_FORM } from '../Modal/Modal';
-import LoginDefault from '~/components/Modal/LoginDefault';
+import LoginDefault from '~/components/Login/LoginDefault';
 
 const FormContext = createContext();
 function FormContextProvider({ children }) {

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
 
-// @param : target : string -> use for custom portal, if you want to create portal in a HTML element with id or className
+// @param : target : string -> use to custom portal, if you want to create portal in a HTML element with id or className
 function Portal({ children, target }) {
    const [root, setRoot] = useState();
 

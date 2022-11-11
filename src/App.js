@@ -4,6 +4,7 @@ import DefaultLayout from './layout/DefaultLayout';
 import routes from './route/route';
 
 function App() {
+   console.log('render');
    return (
       <Router>
          <div className="App">
@@ -16,7 +17,7 @@ function App() {
                         path={route.path}
                         element={
                            <DefaultLayout>
-                              <Page />
+                                 <Page />
                            </DefaultLayout>
                         }
                      />

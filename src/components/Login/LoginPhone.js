@@ -1,14 +1,11 @@
-import { useContext } from 'react';
 import classNames from 'classnames/bind';
 
 import { SelectIcon } from '~/assets/Icon';
 import styles from './Login.module.scss';
-import { FormContext } from '../Context/FormContext';
 import { Button } from '../Button';
 
 const cx = classNames.bind(styles);
 function LoginPhone() {
-   const formContext = useContext(FormContext);
    return (
       <form action="" className={cx('form-wrapper')}>
          <div className={cx('label-block')}>

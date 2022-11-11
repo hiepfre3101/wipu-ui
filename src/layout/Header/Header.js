@@ -17,9 +17,11 @@ function Header() {
    };
    return (
       <div className={cx('wrapper')}>
-         <p className={cx('label')}>Welcome!</p>
-         <Search />
-         <div className={cx('auth')}>
+       <div className={cx('flex-col--left')}>
+            <p className={cx('label')}>Welcome!</p>
+           <div className={cx('search-wrap')}><Search/></div>
+       </div>
+         <div className={cx('flex-col--right')}>
             <Button roundXl className={cx('auth-btn')} large onClick={() => setIsOpenModal(true)}>
                Login
             </Button>

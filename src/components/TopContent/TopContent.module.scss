@@ -1,0 +1,99 @@
+.wrapper{
+    width: 100%;
+    background-color: var(--second-color);
+    position: relative;
+    top:150px;
+    padding: 30px;
+    border-radius: 20px;
+    color: white;
+}
+.title{
+    font-size: 3rem;
+}
+.main-block{
+    width: 100%;
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ gap: 1px;
+ margin-top: 60px;
+}
+.anime{
+display: flex;
+justify-content: space-between;
+ width: 300px;
+ height: 230px;
+ border-radius: 10px;
+ position: relative;
+}
+.img-block{
+    display: flex;
+    justify-content: start;
+    margin-right: 15px;
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover{
+     transform: scale(1.05);
+    }
+    & .index{
+       color: rgb(199 210 254);
+       width: 4rem;
+       height: 5rem;
+       border-bottom-left-radius: 10px;
+       border-top-left-radius: 10px;
+       border: 4px solid rgb(199 210 254);
+       font-size: 2rem;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       margin-top: 35%;
+    }
+    & .img{
+        width: 12rem;
+        height: 18rem;
+        border-radius: 15px;
+    }
+}
+.anime-info{
+    flex: 1;
+    color: white;
+    & .name{
+        font-weight: 600;
+        font-size: 1.8rem;
+    }
+    & .rate{
+        width: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        & .rate-icon{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            & .icon{
+                width: 1.5rem;
+                height: 1.5rem;
+                margin-right: 5px;
+            }
+        }
+    }
+}
+.btn-watch{
+    background-color: rgb(250, 68, 68);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    box-shadow: 0px 2px 5px rgb(255, 129, 129);
+    transition: 0.5s;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(255, 45, 45);
+     transform: scale(1.05);
+    }
+}
+.bot-img{
+    width: 280px;
+ height: 230px;
+}
