@@ -22,8 +22,8 @@ function Video({ data }) {
          <div className={cx('trailer-block')}>
             <p className={cx('title')}>Trailer</p>
             <div className={cx('popup-trailer')}>
-               {data.promo &&
-                  data.promo.map((item, index) => (
+               {data.data.promo &&
+                  data.data.promo.map((item, index) => (
                      <div
                         className={cx('trailer-item')}
                         key={index}

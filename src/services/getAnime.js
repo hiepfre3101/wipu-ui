@@ -9,11 +9,16 @@ export const getAnimeById = async (id) => {
    }
 };
 
-export const getMoreAnimeById = async (id,path) =>{
+export const getMoreAnimeById = async (id,path,page) =>{
    try{
-     const data = await request.get(`${id}/${path}`,{});
-     return data.data;
+     const data = await request.get(`${id}/${path}`,{
+      params:{
+         page:page,
+      }
+     });
+     return data;//data is an object = {pagination:[], data:[]}
    }catch(err){
       console.log(err);
    }
 }
+

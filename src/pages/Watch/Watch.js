@@ -13,7 +13,6 @@ import TabUi from '~/components/TabUi/TabUi';
 
 const cx = classNames.bind(styles);
 function Watch() {
-   console.log('watch render');
    const [data, setData] = useState([]);
    const [loading, setLoading] = useState(true);
    const animeIdContext = useContext(AnimeIdContext);
@@ -54,7 +53,7 @@ function Watch() {
                   </div>
                </div>
             </div>
-            <TabUi id={animeIdContext.id}/>
+            <TabUi id={animeIdContext.id} countEpisode={data.episodes}/>
          </div>
       );
    }

@@ -1,19 +1,49 @@
 import { createContext } from 'react';
 import { useState } from 'react';
 
-import { useMultipleStepForm } from '~/hook';
-import { MULTI_FORM } from '../Modal/Modal';
+import LoginPhone from '../Login/LoginPhone';
 import LoginDefault from '~/components/Login/LoginDefault';
+import { useEffect } from 'react';
 
 const FormContext = createContext();
+const MULTI_FORM = [
+   {
+      type: 'login',
+      label: 'Log in to Wipu',
+      element: <LoginDefault />,
+   },
+   {
+      type: 'phone',
+      label: 'Log in with phone',
+      element: <LoginPhone />,
+   },
+   {
+      type: 'email',
+      label: 'Log in with Email',
+      element: <h1>Email</h1>,
+   },
+   {
+      type: 'signup',
+      label: 'Sign up',
+      element: <h1>Sign up</h1>,
+   },
+];
 function FormContextProvider({ children }) {
-   const multiForm = useMultipleStepForm(MULTI_FORM);
-   const [historySteps, setHistorySteps] = useState([{ label: 'Log in to Wipu', element: <LoginDefault /> }]);
+   const [type, setType] = useState('login');
+   const [historySteps, setHistorySteps] = useState([]);
    const currentStep = historySteps[historySteps.length - 1];
-   const handleChangeForm = (stepIndex) => {
-      multiForm.goTo(stepIndex);
-      setHistorySteps((prev) => [...prev, multiForm.currentStep]);
+   useEffect(() => {
+      const tab = MULTI_FORM.filter(item=>{
+             return item.type === type;
+      })
+      setHistorySteps((prev) => [...prev,...tab]);
+   }, [type]);
+   const handleChangeForm = (type) => {
+      setType(type);
    };
+  const resertStep=()=>{
+     setHistorySteps([{type:'login',label: 'Log in to Wipu', element: <LoginDefault /> }]);
+  }
    const handleBack = () => {
       setHistorySteps((prev) => prev.slice(0, prev.length - 1));
    };
@@ -23,8 +53,8 @@ function FormContextProvider({ children }) {
       currentStep,
       handleBack,
       handleChangeForm,
+      resertStep
    };
    return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 }
-
 export { FormContextProvider, FormContext };

@@ -6,22 +6,11 @@ import Portal from '../Portal/Portal';
 import { XmaskIcon, BackIcon } from '~/assets/Icon';
 import ModalItem from './ModalItem';
 import { FormContext } from '../Context/FormContext';
-import LoginPhone from '../Login/LoginPhone';
 
-export const MULTI_FORM = [
-   {
-      label: 'Log in with phone',
-      element: <LoginPhone />,
-   },
-   {
-      label: 'Log in with Email',
-      element: <h1>Email</h1>,
-   },
-];
+
 const cx = classNames.bind(styles);
 function Modal({ onClose, isOpenModal }) {
    const formContext = useContext(FormContext);
-
    if (!isOpenModal) {
       return null;
    }

@@ -1,12 +1,16 @@
 import { useState } from 'react';
 
 function useSetType() {
-   const [type, setType] = useState('videos');
+   const [type, setType] = useState('episodes');
+   const [page, setPage] = useState(1);
    const handleChangeTab = (tab) => {
       setType(tab);
    };
 
-   const exports = { type, handleChangeTab };
+   const handleChangePage = (page) => {
+      setPage(page);
+   };
+   const exports = { type, handleChangeTab, handleChangePage, page };
 
    return exports;
 }

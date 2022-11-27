@@ -15,25 +15,29 @@ import { useSetType } from '~/hook';
 const cx = classNames.bind(styles);
 const tabs = [
    {
+      tab: 'episodes',
+      name: 'Episodes',
+      element: (data, moreProps) => {
+         return <Episodes data={data} moreProps={moreProps} />;
+      },
+      hasMoreProp: true,
+   },
+   {
       tab: 'videos',
-      name: 'Videos',
+      name: 'Trailers',
       element: (data) => {
          return <Videos data={data} />;
       },
+      hasMoreProp: false,
    },
-   {
-      tab: 'episodes',
-      name: 'Episodes',
-      element: (data) => {
-         return <Episodes data={data} />;
-      },
-   },
+
    {
       tab: 'characters',
       name: 'Character & Staff',
       element: (data) => {
          return <Characters data={data} />;
       },
+      hasMoreProp: false,
    },
    {
       tab: 'news',
@@ -41,23 +45,35 @@ const tabs = [
       element: (data) => {
          return <News data={data} />;
       },
+      hasMoreProp: false,
    },
 ];
-function TabUi({ id }) {
-   console.log('tab ui render');
+function TabUi({ id, countEpisode }) {
    const [data, setData] = useState([]);
    const [loading, setLoading] = useState(true);
    const type = useSetType();
-   // debugger;
+
+   // moreProps is an array has children component of TabUi. Each object is a component has more props need pass more props.
+   // if you want to add prop to a child component of TabUi, add an object similar to the one below
+   // note : value of key "children" have to uniqe, which represents the names of the child comps of TabUi.
+   const moreProps = [
+      {
+         children: 'episodes',
+         props: {
+            countEpisode,
+            handleChangePage: type.handleChangePage, 
+         },
+      },
+   ];
    useEffect(() => {
       const fetchApi = async () => {
-         const dataApi = await request.getMoreAnimeById(id, type.type);
+         const dataApi = await request.getMoreAnimeById(id, type.type, type.page);
          setData(dataApi);
          setLoading(false);
       };
       fetchApi();
       // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [id, type.type]);
+   }, [id, type.type, type.page]);
    if (loading) {
       return <Loading />;
    } else {
@@ -79,7 +95,9 @@ function TabUi({ id }) {
             </div>
             <div>
                {tabs.map((tab) => {
-                  if (type.type === tab.tab) {
+                  if (type.type === tab.tab && tab.hasMoreProp) {
+                     return tab.element(data, moreProps);
+                  } else if (type.type === tab.tab && !tab.hasMoreProp) {
                      return tab.element(data);
                   }
                   return null;

@@ -38,7 +38,7 @@ function LoginDefault() {
                leftIcon={item.icon}
                large
                className={cx('btn-login')}
-               onClick={() => formContext.handleChangeForm(0)}
+               onClick={() => formContext.handleChangeForm('phone')}
             >
                {item.title}
             </Button>

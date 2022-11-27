@@ -1,11 +1,11 @@
 import Loading from "~/components/Loading/Loading";
 
 function Staff({ data }) {
-   if(Array.isArray(data)){
+   if(Array.isArray(data.data)){
       return (
      <div>
         Characters
-        {data.map((item, index) => (
+        {data.data.map((item, index) => (
            <li key={index}>{item.role}</li>
         ))}
      </div>

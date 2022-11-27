@@ -2,15 +2,18 @@ import classNames from 'classnames/bind';
 
 import { SelectIcon } from '~/assets/Icon';
 import styles from './Login.module.scss';
-import { Button } from '../Button';
+import { useContext } from 'react';
 
+import { Button } from '../Button';
+import { FormContext } from '../Context/FormContext';
 const cx = classNames.bind(styles);
 function LoginPhone() {
+   const formContext = useContext(FormContext);
    return (
       <form action="" className={cx('form-wrapper')}>
          <div className={cx('label-block')}>
             <label>Phone</label>
-            <label className={cx('other-login')}>Log in with email</label>
+            <label onClick={()=>formContext.handleChangeForm('email')} className={cx('other-login')}>Log in with email</label>
          </div>
          <div className={cx('form-group')}>
             <div className={cx('select-input')}>
