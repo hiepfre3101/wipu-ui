@@ -11,9 +11,9 @@ function FavoriteList() {
    const [list, setList] = useState([]);
    useEffect(() => {
       request
-         .getTopAnime({limit:3})
+         .getTopAnime()
          .then((data) => {
-            setList(data);
+            setList(data.results);
          })
          .catch((err) => console.log(err));
    }, []);
@@ -26,12 +26,13 @@ function FavoriteList() {
                   return (
                      <FavoriteItem
                         key={index}
-                        img={item.images.jpg.image_url}
+                        img={item.image}
                         title={item.title}
-                        id={item.mal_id}
+                        id={item.id}
                      />
                   );
                }
+               return null;
             })}
          </div>
       </div>

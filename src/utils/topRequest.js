@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const topRequest = axios.create({
-   baseURL: 'https://api.jikan.moe/v4/top/anime',
+   baseURL: 'https://api.consumet.org/anime/gogoanime/top-airing',
 });
 
 export const get = async (path, option = {}) => {

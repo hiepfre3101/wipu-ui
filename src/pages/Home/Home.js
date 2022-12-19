@@ -5,12 +5,10 @@ import { SeasonContent } from '~/components/SeasonContent';
 import { TopContent } from '~/components/TopContent';
 const cx = classNames.bind(styles);
 function Home() {
-   console.log('home render')
    return (
       <div className={cx('wrapper')}>
          <Hero />
         <SeasonContent/>
-        
         <TopContent/>
       </div>
    );

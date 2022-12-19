@@ -1,16 +1,9 @@
 import * as request from '~/utils/topRequest';
 
-export const getTopAnime = async ({ type, limit, filter, page }) => {
+export const getTopAnime = async () => {
    try {
-      const respond = await request.get('', {
-         params: {
-            type,
-            limit,
-            filter,
-            page,
-         },
-      });
-      return respond.data;
+      const respond = await request.get('', {});
+      return respond;
    } catch (err) {
       console.log(err);
    }

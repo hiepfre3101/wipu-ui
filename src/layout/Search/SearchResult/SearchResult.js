@@ -12,8 +12,8 @@ function SearchResult({ data = [] }) {
          return <p>Nothing find</p>;
       } else {
          return data.map((item) => (
-            <Link key={item.mal_id} className={cx('anime-block')} to={`/watch?id=${item.mal_id}`} onClick={()=>animeIdContext.goToWatch(item.mal_id)}>
-               <img src={item.images.jpg.image_url} alt="avatar" className={cx('anime-img')}/>
+            <Link key={item.id} className={cx('anime-block')} to={`/watch?id=${item.id}`} onClick={()=>animeIdContext.goToWatch(item.mal_id)}>
+               <img src={item.image} alt="avatar" className={cx('anime-img')}/>
                <p className={cx('anime-name')}>{item.title}</p>
             </Link>
          ));

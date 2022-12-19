@@ -23,10 +23,9 @@ function HeroPreview({ index, slides, slideLength }) {
    } else {
       return (
          <div className={cx('img-block')}>
-            <img src={slides[nextSlideIndex].images.jpg.large_image_url} alt="img" className={cx('next-img')} />
+            <img src={slides[nextSlideIndex].image} alt="img" className={cx('next-img')} />
          </div>
       );
    } 
 }
-//index =3 -> undefined line 24 : not have index =5 in array. 
 export default HeroPreview;

@@ -44,17 +44,17 @@ function SeasonContent() {
                className={cx('head-img')}
             />
             <div className={cx('main-block')}>
-               <h2 className={cx('title')}>This Season</h2>
+               <h2 className={cx('title')}>New Episodes</h2>
                <div className={cx('wrap-anime')}>
-                  {data.map((item) => (
+                  {data.results.map((item) => (
                      <Link
-                        to={`/watch?id=${item.mal_id}`}
+                        to={`/watch?id=${item.id}`}
                         className={cx('anime')}
-                        key={item.mal_id}
-                        onClick={() => animeIdContext.goToWatch(item.mal_id)}
+                        key={item.id}
+                        onClick={() => animeIdContext.goToWatch(item.id)}
                      >
-                        <div className={cx('episodes')}>ep.{item.episodes}</div>
-                        <img src={item.images.jpg.large_image_url} alt="img" className={cx('img-anime')} />
+                        <div className={cx('episodes')}>ep.{item.episodeNumber}</div>
+                        <img src={item.image} alt="img" className={cx('img-anime')} />
                         <div className={cx('name-block')}>
                            <p className={cx('name')}>{item.title}</p>
                         </div>
@@ -67,7 +67,7 @@ function SeasonContent() {
                         <FontAwesomeIcon icon={faArrowLeft} onClick={handlePrev} />
                      </div>
                   )}
-                  {page === 6 ? null : (
+                  {!data.hasNextPage === true ? null : (
                      <div className={cx('btn-action')} onClick={handleNext}>
                         <FontAwesomeIcon icon={faArrowRight} />
                      </div>

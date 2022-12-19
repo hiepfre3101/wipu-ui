@@ -19,8 +19,8 @@ function Hero() {
    const animeIdContext = useContext(AnimeIdContext);
    useEffect(() => {
       const fetchApi = async () => {
-         const data = await topAnime.getTopAnime({type:"tv",limit:5,filter:"airing",page:1});
-         setListSlide(data);
+         const data = await topAnime.getTopAnime();
+         setListSlide(data.results);
          setLoading(false);
       };
       fetchApi();
@@ -51,7 +51,7 @@ function Hero() {
    } else
       return (
          <div className={cx('wrapper')}>
-            <img src={listSlide[indexSlide].images.jpg.large_image_url} className={cx('bg-hero')} alt="banner" />
+            <img src={listSlide[indexSlide].image} className={cx('bg-hero')} alt="banner" />
             <div className={cx('bg-overlay')}></div>
             <div className={cx('main-block')}>
                <div className={cx('left-block')}>
@@ -61,8 +61,8 @@ function Hero() {
                      primary
                      className={cx('btn-watch')}
                      rightIcon={<PlayIcon />}
-                     to={`/watch?id=${listSlide[indexSlide].mal_id}`}
-                     onClick={()=>animeIdContext.goToWatch(listSlide[indexSlide].mal_id)}
+                     to={`/watch?id=${listSlide[indexSlide].id}`}
+                     onClick={()=>animeIdContext.goToWatch(listSlide[indexSlide].id)}
                   >
                      Watch
                   </Button>

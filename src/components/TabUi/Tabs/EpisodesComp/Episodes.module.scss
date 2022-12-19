@@ -1,5 +1,6 @@
 .wrapper{
     margin-top: 50px;
+   
 }
 .title{
     max-width: 150px;
@@ -35,6 +36,11 @@
             background-color: #5154fa;
         }
     }
+}
+.list-page-block{
+       background-color: white;
+    border-radius: 20px;
+    padding: 10px;
 }
 .list-page{
     display: flex;

@@ -25,10 +25,11 @@
 .wrap-anime{
  width: 100%;
  display: flex;
- justify-content: space-between;
+ justify-content: start;
  flex-wrap: wrap;
- gap: 15px;
+ gap:8rem;
  margin-top: 30px;
+ padding-left: 3rem;
 }
 .anime{ 
  display: block;

@@ -8,7 +8,7 @@ function AnimeIdProvider({ children }) {
    const [id, setId] = useState(idAnime);
    const goToWatch = (animeId) => {
          setId(animeId);
-   };
+   };//gotoWatch() : function set global state 'id' 
    const values = {
       id: id,
       goToWatch,

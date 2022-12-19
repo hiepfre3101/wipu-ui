@@ -10,6 +10,7 @@ import Loading from '~/components/Loading/Loading';
 import * as requestAnime from '~/services/getAnime';
 import styles from './Watch.module.scss';
 import TabUi from '~/components/TabUi/TabUi';
+import { Video } from '~/components/Video';
 
 const cx = classNames.bind(styles);
 function Watch() {
@@ -17,6 +18,7 @@ function Watch() {
    const [loading, setLoading] = useState(true);
    const animeIdContext = useContext(AnimeIdContext);
    useEffect(() => {
+      window.scrollTo(0,0);
       const fetchApi = async () => {
          const data = await requestAnime.getAnimeById(animeIdContext.id);
          setData(data);
@@ -38,13 +40,13 @@ function Watch() {
                <img src="https://wallpaperaccess.com/full/185688.jpg" alt="img" className={cx('banner-img')} />
                <div className={cx('general-info')}>
                   <div className={cx('img-block')}>
-                     <img src={data.images.jpg.large_image_url} alt="img" className={cx('general-img')} />
+                     <img src={data.image} alt="img" className={cx('general-img')} />
                   </div>
                   <div className={cx('desc-block')}>
                      <div className={cx('name-block')}>
                         <div className={cx('name')}>
                            <h3 className={cx('name-default')}>{data.title}</h3>
-                           <p className={cx('name-jp')}>{data.title_japanese}</p>
+                           <p className={cx('name-jp')}>{data.otherName}</p>
                         </div>
                         <Button leftIcon={<SaveIcon />} roundL primary className={cx('btn-save')}>
                            Save
@@ -53,7 +55,7 @@ function Watch() {
                   </div>
                </div>
             </div>
-            <TabUi id={animeIdContext.id} countEpisode={data.episodes}/>
+            <TabUi id={animeIdContext.id} countEpisode={data.totalEpisodes}/>
          </div>
       );
    }

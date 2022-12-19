@@ -7,7 +7,7 @@ export const getSeasonRequest = async(page)=>{
         page:page
     }
    })
-   return res.data;
+   return res;
   }catch(err){
     console.log(err)
   }

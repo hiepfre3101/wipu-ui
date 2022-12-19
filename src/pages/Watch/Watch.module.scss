@@ -47,7 +47,7 @@
                display: flex;
             justify-content: space-between;
             align-items: center;
-            overflow-y: auto;
+            overflow-y: hidden;
             padding-top: 10px;
             &::-webkit-scrollbar{
                 display: none;
@@ -78,6 +78,8 @@
             }
         }
         }
-       
+       & .name-default{
+         padding-top: 5px;
+       }
     }
 }
