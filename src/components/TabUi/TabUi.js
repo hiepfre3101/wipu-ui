@@ -7,6 +7,8 @@ import * as request from '~/services/getAnime';
 import styles from './TabUi.module.scss';
 import Episodes from './Tabs/EpisodesComp/Episodes';
 import { useSetType } from '~/hook';
+
+
 const cx = classNames.bind(styles);
 function TabUi({ id}) {
    const [data, setData] = useState([]);
@@ -27,7 +29,7 @@ function TabUi({ id}) {
       return (
          <div className={cx('wrapper')}>
             <div>
-              <Episodes data={data}  handleChangePage={type.handleChangePage} idAnime={id}/>
+              <Episodes data={data}  handleChangePage={type.handleChangePage}/>
             </div>
          </div>
       );

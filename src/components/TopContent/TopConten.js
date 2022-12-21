@@ -27,8 +27,8 @@ function TopContent({ data }) {
                      <div className={cx('anime')} key={item.id}>
                   <Link
                      className={cx('img-block')}
-                     to={`/watch?id=${item.id}`}
-                     onClick={() => animeIdContext.goToWatch(item.id)}
+                     to={`/watch?id=${item.id}-episode-1`}
+                     onClick={() => animeIdContext.goToWatch(`${item.id}-episode-1`)}
                   >
                      <div className={cx('index')}>{index + 1}</div>
                      <img src={item.image} alt="img" className={cx('img')} />
@@ -36,11 +36,12 @@ function TopContent({ data }) {
                   <div className={cx('anime-info')}>
                      <p className={cx('name')}>{item.title}</p>
                      <Button
-                        to={`/watch?id=${item.id}`}
+                        to={`/watch?id=${item.id}-episode-1`}
                         small
                         roundL
                         leftIcon={<PlayIcon />}
                         className={cx('btn-watch')}
+                        onClick={() => animeIdContext.goToWatch(`${item.id}-episode-1`)}
                      ></Button>
                   </div>
                </div>

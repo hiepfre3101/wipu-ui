@@ -10,7 +10,7 @@ import Loading from '~/components/Loading/Loading';
 import * as requestAnime from '~/services/getAnime';
 import styles from './Watch.module.scss';
 import TabUi from '~/components/TabUi/TabUi';
-import { Video } from '~/components/Video';
+import { SeasonContent } from '~/components/SeasonContent';
 
 const cx = classNames.bind(styles);
 function Watch() {
@@ -18,7 +18,7 @@ function Watch() {
    const [loading, setLoading] = useState(true);
    const animeIdContext = useContext(AnimeIdContext);
    useEffect(() => {
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
       const fetchApi = async () => {
          const data = await requestAnime.getAnimeById(animeIdContext.id);
          setData(data);
@@ -55,7 +55,20 @@ function Watch() {
                   </div>
                </div>
             </div>
-            <TabUi id={animeIdContext.id} countEpisode={data.totalEpisodes}/>
+            <TabUi id={animeIdContext.id} countEpisode={data.totalEpisodes} />
+            <div className={cx('wrap-info')}>
+               <p className={cx('info-title')}>Anime Info</p>
+               <div className={cx('info-block')}>
+                  <img src={data.image} alt="img" className={cx('general-img')} />
+                  <div className={cx('info-desc')}>
+                       <p className={cx('desc-name')}>{data.title}</p>
+                       <p className={cx('desc-crumb')}>Episode Count: <span>{data.totalEpisodes}</span></p>
+                       <p className={cx('desc-crumb')}>Release: <span>{data.releaseDate}</span></p>
+                       <p className={cx('desc-crumb')}>{data.description}</p>
+                  </div>
+               </div>
+            </div>
+            <SeasonContent isPage />
          </div>
       );
    }

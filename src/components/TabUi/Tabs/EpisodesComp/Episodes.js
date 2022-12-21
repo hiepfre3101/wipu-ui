@@ -3,14 +3,18 @@ import classNames from 'classnames/bind';
 import styles from './Episodes.module.scss';
 import Loading from '~/components/Loading/Loading';
 import { Button } from '~/components/Button';
-import { useEffect, useState } from 'react';
 import { Video } from '~/components/Video';
 import * as request from "~/services/getEmbedVideo";
+import { AnimeIdContext } from '~/components/Context/AnimeIdContext';
+
+import { useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 const cx = classNames.bind(styles);
-function Episodes({ data, handleChangePage,idAnime}) {
-   const [episode, setEpisode] = useState(1);
-   const [episodeId,setEpisodeId] = useState(`${idAnime}-episode-1`);
+function Episodes({ data, handleChangePage}) {
+   const animeContext = useContext(AnimeIdContext);
+   const [episode, setEpisode] = useState(animeContext.numberEpisode);
+   const [episodeId,setEpisodeId] = useState(animeContext.idEpisode);
    const [src, setSrc] = useState("");
    const handleOpenVideo = (id,number)=>{
       setEpisodeId(id);

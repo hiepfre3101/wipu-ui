@@ -12,7 +12,7 @@ function SearchResult({ data = [] }) {
          return <p>Nothing find</p>;
       } else {
          return data.map((item) => (
-            <Link key={item.id} className={cx('anime-block')} to={`/watch?id=${item.id}`} onClick={()=>animeIdContext.goToWatch(item.mal_id)}>
+            <Link key={item.id} className={cx('anime-block')} to={`/watch?id=${item.id}-episode-1`} onClick={()=>animeIdContext.goToWatch(`${item.id}-episode-1`)}>
                <img src={item.image} alt="avatar" className={cx('anime-img')}/>
                <p className={cx('anime-name')}>{item.title}</p>
             </Link>

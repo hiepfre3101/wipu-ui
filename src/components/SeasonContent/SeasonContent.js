@@ -12,7 +12,7 @@ import styles from './SeasonContent.module.scss';
 
 const cx = classNames.bind(styles);
 
-function SeasonContent() {
+function SeasonContent(isPage) {
    const [data, setData] = useState([]);
    const [page, setPage] = useState(1);
    const [loading, setLoading] = useState(true);
@@ -38,20 +38,20 @@ function SeasonContent() {
    } else {
       return (
          <div className={cx('wrapper')}>
-            <img
+          {!isPage && ( <img
                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/61c717ae-3d90-4186-bbef-9a7191eb6146/ddmainq-d4eb464c-826f-45e2-aed3-65b216ec12c8.png/v1/fill/w_891,h_720,strp/zenitsu_agatsuma_render___kimersu_no_yaiba_by_guntersw_ddmainq-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzIwIiwicGF0aCI6IlwvZlwvNjFjNzE3YWUtM2Q5MC00MTg2LWJiZWYtOWE3MTkxZWI2MTQ2XC9kZG1haW5xLWQ0ZWI0NjRjLTgyNmYtNDVlMi1hZWQzLTY1YjIxNmVjMTJjOC5wbmciLCJ3aWR0aCI6Ijw9ODkxIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.zDQ6eyN_1iGepS-buOb9y83KvMdxEPMk6HCCjl2AyQY"
                alt="zenitsu"
                className={cx('head-img')}
-            />
+            />)}  
             <div className={cx('main-block')}>
                <h2 className={cx('title')}>New Episodes</h2>
                <div className={cx('wrap-anime')}>
                   {data.results.map((item) => (
                      <Link
-                        to={`/watch?id=${item.id}`}
+                        to={`/watch?id=${item.id}-episode-${item.episodeNumber}`}
                         className={cx('anime')}
                         key={item.id}
-                        onClick={() => animeIdContext.goToWatch(item.id)}
+                        onClick={() => animeIdContext.goToWatch(`${item.id}-episode-${item.episodeNumber}`)}
                      >
                         <div className={cx('episodes')}>ep.{item.episodeNumber}</div>
                         <img src={item.image} alt="img" className={cx('img-anime')} />
@@ -61,7 +61,7 @@ function SeasonContent() {
                      </Link>
                   ))}
                </div>
-               <div className={cx('btn-block')}>
+              {!isPage && (<div className={cx('btn-block')}>
                   {page === 1 ? null : (
                      <div className={cx('btn-action')}>
                         <FontAwesomeIcon icon={faArrowLeft} onClick={handlePrev} />
@@ -72,7 +72,7 @@ function SeasonContent() {
                         <FontAwesomeIcon icon={faArrowRight} />
                      </div>
                   )}
-               </div>
+               </div>) } 
             </div>
          </div>
       );
