@@ -9,7 +9,7 @@ import { Button } from '~/components/Button';
 import Loading from '~/components/Loading/Loading';
 import * as requestAnime from '~/services/getAnime';
 import styles from './Watch.module.scss';
-import TabUi from '~/components/TabUi/TabUi';
+import Episodes from '~/components/EpisodesComp/Episodes';
 import { SeasonContent } from '~/components/SeasonContent';
 
 const cx = classNames.bind(styles);
@@ -55,7 +55,7 @@ function Watch() {
                   </div>
                </div>
             </div>
-            <TabUi id={animeIdContext.id} countEpisode={data.totalEpisodes} />
+            <Episodes data={data}/>
             <div className={cx('wrap-info')}>
                <p className={cx('info-title')}>Anime Info</p>
                <div className={cx('info-block')}>

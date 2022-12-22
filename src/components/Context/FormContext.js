@@ -29,17 +29,13 @@ const MULTI_FORM = [
    },
 ];
 function FormContextProvider({ children }) {
-   const [type, setType] = useState('login');
-   const [historySteps, setHistorySteps] = useState([]);
+   const [historySteps, setHistorySteps] = useState([{type:'login',label: 'Log in to Wipu', element: <LoginDefault /> }]);
    const currentStep = historySteps[historySteps.length - 1];
-   useEffect(() => {
-      const tab = MULTI_FORM.filter(item=>{
-             return item.type === type;
-      })
-      setHistorySteps((prev) => [...prev,...tab]);
-   }, [type]);
    const handleChangeForm = (type) => {
-      setType(type);
+       const tab = MULTI_FORM.filter(item=>{
+             return item.type === type;
+      });
+      setHistorySteps((prev) => [...prev,...tab]);
    };
   const resertStep=()=>{
      setHistorySteps([{type:'login',label: 'Log in to Wipu', element: <LoginDefault /> }]);

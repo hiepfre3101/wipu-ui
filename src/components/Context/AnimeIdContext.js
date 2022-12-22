@@ -5,14 +5,14 @@ const AnimeIdContext = createContext();
 function AnimeIdProvider({ children }) {
    const queryParam = new URLSearchParams(window.location.search);
    let idEpisode = queryParam.get('id');
-   let  idAnime = idEpisode;
-   let numberEpisode = "1";
+   let idAnime = idEpisode;
    if(idEpisode){
-         idAnime= idEpisode.slice(0,idEpisode.lastIndexOf("-episode"));
-         numberEpisode = idEpisode.slice(idEpisode.lastIndexOf("-")+1);
+     idAnime= idEpisode.slice(0,idEpisode.lastIndexOf("-episode"));
    }
    const [idAnimeState, setIdAnimeState] = useState(idAnime);
+   const [numberEpisode, setNumberEpisode] = useState(1);
    const goToWatch = (idEpisode) => {
+      setNumberEpisode(idEpisode.slice(idEpisode.lastIndexOf("-")+1));
        setIdAnimeState(idEpisode.slice(0,idEpisode.lastIndexOf("-episode")));
    };//gotoWatch() : function set global state 'id' 
    const values = {

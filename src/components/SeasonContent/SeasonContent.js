@@ -5,6 +5,7 @@ import { useContext, useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { linkToWatch } from '~/_globalVaribles';
 import { AnimeIdContext } from '../Context/AnimeIdContext';
 import Loading from '~/components/Loading/Loading';
 import * as request from '~/services/seasonAnimeNow';
@@ -48,10 +49,10 @@ function SeasonContent(isPage) {
                <div className={cx('wrap-anime')}>
                   {data.results.map((item) => (
                      <Link
-                        to={`/watch?id=${item.id}-episode-${item.episodeNumber}`}
+                        to={`/watch?id=${linkToWatch(item.id,item.episodeNumber)}`}
                         className={cx('anime')}
                         key={item.id}
-                        onClick={() => animeIdContext.goToWatch(`${item.id}-episode-${item.episodeNumber}`)}
+                        onClick={() => animeIdContext.goToWatch(linkToWatch(item.id,item.episodeNumber))}
                      >
                         <div className={cx('episodes')}>ep.{item.episodeNumber}</div>
                         <img src={item.image} alt="img" className={cx('img-anime')} />

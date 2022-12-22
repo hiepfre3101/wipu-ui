@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { useContext } from 'react';
 
+import { linkToWatch } from '~/_globalVaribles';
 import { AnimeIdContext } from '../Context/AnimeIdContext';
 import * as topAnime from '~/services/topAnime';
 import { ArrowRightIcon, PlayIcon } from '~/assets/Icon';
@@ -61,8 +62,8 @@ function Hero() {
                      primary
                      className={cx('btn-watch')}
                      rightIcon={<PlayIcon />}
-                     to={`/watch?id=${listSlide[indexSlide].id}`}
-                     onClick={()=>animeIdContext.goToWatch(listSlide[indexSlide].id)}
+                     to={`/watch?id=${linkToWatch(listSlide[indexSlide].id,1)}`}
+                     onClick={()=>animeIdContext.goToWatch(linkToWatch(listSlide[indexSlide].id,1))}
                   >
                      Watch
                   </Button>
