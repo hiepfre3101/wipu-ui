@@ -9,14 +9,17 @@ import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 const loginOptions = [
    {
+      type:"facebook",
       title: 'Login with Facebook',
       icon: <FacebookIcon />,
    },
    {
+      type:"google",
       title: 'Login with Google',
       icon: <GoogleIcon />,
    },
    {
+      type:"phone",
       title: 'Login with phone or email',
       icon: <UserIcon />,
       onClick: true,
@@ -38,7 +41,7 @@ function LoginDefault() {
                leftIcon={item.icon}
                large
                className={cx('btn-login')}
-               onClick={() => formContext.handleChangeForm('phone')}
+               onClick={() => formContext.handleChangeForm(item.type)}
             >
                {item.title}
             </Button>

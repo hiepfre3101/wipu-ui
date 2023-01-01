@@ -68,7 +68,7 @@ function Watch() {
                   </div>
                </div>
             </div>
-            <SeasonContent isPage />
+            <SeasonContent/>
          </div>
       );
    }

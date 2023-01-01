@@ -35,8 +35,10 @@
   background-color: white;
 }
 .disabled{
-  color: rgba(22, 24, 35, 0.34);
-}
+  color: rgba(22, 24, 35, 0.34) !important;
+  background-color: rgb(240, 240, 240) !important;
+  cursor: not-allowed;
+} 
 .icon{
   width: 2rem;
   height: 2rem;

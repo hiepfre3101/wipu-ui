@@ -8,10 +8,12 @@ function ModalItem({ label, element }) {
    const formContext = useContext(FormContext);
    return (
       <div className={cx('wrap-outer')}>
-         <h2 className={cx('label')}>{label}</h2>
-         <div className={cx('btn-block')}>
-            {element}
-         </div>
+        <article className={cx('body-login')}>
+            <h2 className={cx('label')}>{label}</h2>
+            <div className={cx('btn-block')}>
+               {element}
+            </div>
+        </article>
          <footer className={cx('footer')}>
             <div className={cx('footer-block')}>
                <p className={cx('footer-title')}>Don't have account? </p>

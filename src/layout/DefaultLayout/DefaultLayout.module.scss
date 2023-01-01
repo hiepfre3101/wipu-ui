@@ -1,14 +1,15 @@
 .wrapper{
     max-width: 100%;
-    min-height: 4600px;
     background: var(--bg-color);
     padding:23px;
     padding-right: 50px;
+    position: relative;
+    top: 0;
+    left: 0;
 }
 .sidebar-wrap{
     max-width: 30%;
     min-height: 100vh;
-    height: 583px;
     position: fixed;
     left: 25px;
 }

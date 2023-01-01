@@ -3,9 +3,36 @@ import { useState } from 'react';
 
 import LoginPhone from '../Login/LoginPhone';
 import LoginDefault from '~/components/Login/LoginDefault';
-import { useEffect } from 'react';
+import { FacebookIcon, GoogleIcon, UserIcon } from '~/assets/Icon';
 
 const FormContext = createContext();
+const loginSteps = [
+   {
+      name:"facebook",
+      title: 'Login with Facebook',
+      icon: <FacebookIcon />,
+   },
+   {
+      name:"google",
+      title: 'Login with Google',
+      icon: <GoogleIcon />,
+   },
+   {
+      name:"phone",
+      title: 'Login with phone or email',
+      icon: <UserIcon />,
+      children:[
+         {
+            type: 'phone',
+            element: <LoginPhone />,
+         },
+         {
+            type: 'email',
+            element: <h1>Email</h1>,
+         },
+      ]
+   },
+];
 const MULTI_FORM = [
    {
       type: 'login',
@@ -29,7 +56,7 @@ const MULTI_FORM = [
    },
 ];
 function FormContextProvider({ children }) {
-   const [historySteps, setHistorySteps] = useState([{type:'login',label: 'Log in to Wipu', element: <LoginDefault /> }]);
+   const [historySteps, setHistorySteps] = useState([MULTI_FORM[0]]);
    const currentStep = historySteps[historySteps.length - 1];
    const handleChangeForm = (type) => {
        const tab = MULTI_FORM.filter(item=>{
@@ -38,7 +65,7 @@ function FormContextProvider({ children }) {
       setHistorySteps((prev) => [...prev,...tab]);
    };
   const resertStep=()=>{
-     setHistorySteps([{type:'login',label: 'Log in to Wipu', element: <LoginDefault /> }]);
+     setHistorySteps([MULTI_FORM[0]]);
   }
    const handleBack = () => {
       setHistorySteps((prev) => prev.slice(0, prev.length - 1));

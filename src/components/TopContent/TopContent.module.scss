@@ -2,10 +2,17 @@
     width: 100%;
     background-color: var(--second-color);
     position: relative;
-    top:150px;
     padding: 30px;
     border-radius: 20px;
     color: white;
+    margin-top: 0;
+}
+@media screen and (min-width:1500px){
+    .wrapper{
+        width: 30%;
+        margin-top: 100px;
+        max-height: 1600px;
+    }
 }
 .title{
     font-size: 3rem;

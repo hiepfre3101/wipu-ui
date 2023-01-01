@@ -8,8 +8,10 @@ function Home() {
    return (
       <div className={cx('wrapper')}>
          <Hero />
-        <SeasonContent/>
-        <TopContent/>
+      <div className={cx('main-content')}>
+           <SeasonContent isPage/>
+           <TopContent/>
+      </div>
       </div>
    );
 }
