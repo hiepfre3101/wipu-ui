@@ -7,10 +7,19 @@ import { AnimeIdContext } from '~/components/Context/AnimeIdContext';
 import { SaveIcon } from '~/assets/Icon';
 import { Button } from '~/components/Button';
 import Loading from '~/components/Loading/Loading';
+import * as request from '~/services/seasonAnimeNow';
 import * as requestAnime from '~/services/getAnime';
 import styles from './Watch.module.scss';
 import Episodes from '~/components/EpisodesComp/Episodes';
 import { SeasonContent } from '~/components/SeasonContent';
+import withContent from '~/components/HOCs/withContent';
+
+const selectRequest = {
+   getRequest: (props) => {
+      return request.getSeasonRequest(props);
+   },
+};
+const LastestEpisode = withContent(SeasonContent,selectRequest,false,[]);
 
 const cx = classNames.bind(styles);
 function Watch() {
@@ -31,6 +40,7 @@ function Watch() {
          setLoading(true);
       }
    }, [animeIdContext.id]);
+   
    if (loading) {
       return <Loading />;
    } else {
@@ -55,20 +65,24 @@ function Watch() {
                   </div>
                </div>
             </div>
-            <Episodes data={data}/>
+            <Episodes data={data} />
             <div className={cx('wrap-info')}>
                <p className={cx('info-title')}>Anime Info</p>
                <div className={cx('info-block')}>
                   <img src={data.image} alt="img" className={cx('general-img')} />
                   <div className={cx('info-desc')}>
-                       <p className={cx('desc-name')}>{data.title}</p>
-                       <p className={cx('desc-crumb')}>Episode Count: <span>{data.totalEpisodes}</span></p>
-                       <p className={cx('desc-crumb')}>Release: <span>{data.releaseDate}</span></p>
-                       <p className={cx('desc-crumb')}>{data.description}</p>
+                     <p className={cx('desc-name')}>{data.title}</p>
+                     <p className={cx('desc-crumb')}>
+                        Episode Count: <span>{data.totalEpisodes}</span>
+                     </p>
+                     <p className={cx('desc-crumb')}>
+                        Release: <span>{data.releaseDate}</span>
+                     </p>
+                     <p className={cx('desc-crumb')}>{data.description}</p>
                   </div>
                </div>
             </div>
-            <SeasonContent/>
+          <LastestEpisode/>
          </div>
       );
    }

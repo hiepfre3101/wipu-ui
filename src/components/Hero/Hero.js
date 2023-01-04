@@ -5,32 +5,19 @@ import { useContext } from 'react';
 
 import { linkToWatch } from '~/_globalVaribles';
 import { AnimeIdContext } from '../Context/AnimeIdContext';
-import * as topAnime from '~/services/topAnime';
 import { ArrowRightIcon, PlayIcon } from '~/assets/Icon';
 import { Button } from '../Button';
 import styles from './Hero.module.scss';
 import HeroPreview from './HeroPreview';
-import Loading from '../Loading/Loading';
 
 const cx = classNames.bind(styles);
-function Hero() {
-   const [listSlide, setListSlide] = useState([]);
-   const [loading, setLoading] = useState(true);
+function Hero({ data }) {
    const [indexSlide, setIndexSlide] = useState(0);
    const animeIdContext = useContext(AnimeIdContext);
    useEffect(() => {
-      const fetchApi = async () => {
-         const data = await topAnime.getTopAnime();
-         setListSlide(data.results);
-         setLoading(false);
-      };
-      fetchApi();
-   }, []);
-
-   useEffect(() => {
       const timeId = setTimeout(() => {
          setIndexSlide((prev) => prev + 1);
-         if (listSlide.length > 1 && indexSlide === listSlide.length - 1) {
+         if (data.results.length > 1 && indexSlide === data.results.length - 1) {
             setIndexSlide(0);
          }
       }, 4000);
@@ -41,35 +28,32 @@ function Hero() {
    }, [indexSlide]);
    const handleNext = (e) => {
       e.preventDefault();
-      if (indexSlide === listSlide.length - 1) {
+      if (indexSlide === data.results.length - 1) {
          setIndexSlide(0);
       } else {
          setIndexSlide((prev) => prev + 1);
       }
    };
-   if (loading) {
-      return <Loading />;
-   } else
       return (
          <div className={cx('wrapper')}>
-            <img src={listSlide[indexSlide].image} className={cx('bg-hero')} alt="banner" />
+            <img src={data.results[indexSlide].image} className={cx('bg-hero')} alt="banner" />
             <div className={cx('bg-overlay')}></div>
             <div className={cx('main-block')}>
                <div className={cx('left-block')}>
-                  <p className={cx('title')}>{listSlide[indexSlide].title}</p>
+                  <p className={cx('title')}>{data.results[indexSlide].title}</p>
                   <Button
                      roundL
                      primary
                      className={cx('btn-watch')}
                      rightIcon={<PlayIcon />}
-                     to={`/watch?id=${linkToWatch(listSlide[indexSlide].id,1)}`}
-                     onClick={()=>animeIdContext.goToWatch(linkToWatch(listSlide[indexSlide].id,1))}
+                     to={`/watch?id=${linkToWatch(data.results[indexSlide].id, 1)}`}
+                     onClick={() => animeIdContext.goToWatch(linkToWatch(data.results[indexSlide].id, 1))}
                   >
                      Watch
                   </Button>
                </div>
                <div className={cx('right-block')}>
-                  <HeroPreview index={indexSlide} slides={listSlide} slideLength={listSlide.length} />
+                  <HeroPreview index={indexSlide} slides={data.results} slideLength={data.results.length} />
                   <div className={cx('btn-next')} onClick={handleNext}>
                      <ArrowRightIcon />
                   </div>

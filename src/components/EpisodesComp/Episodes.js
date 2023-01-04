@@ -3,6 +3,7 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
+import PropTypes from 'prop-types';
 
 import styles from './Episodes.module.scss';
 import Loading from '~/components/Loading/Loading';
@@ -34,7 +35,7 @@ function Episodes({ data }) {
          data.episodes.forEach((item, index) => {
             //index in array begin with index = 0
             // start and end is the number of episode, so I minus 1
-            if (index >= start-1 && index <= end-1) {
+            if (index >= start - 1 && index <= end - 1) {
                episodeState.push(item);
             }
             return;
@@ -53,8 +54,9 @@ function Episodes({ data }) {
       const pairEpisodeList = [];
       let startEpisode = 1;
       for (let i = 0; i < tabs; i++) {
-         // if it's the fisrt time, startEpisode = 1 
+         // if it's the fisrt time, startEpisode = 1
          //if it's not the first time the loop start, startEpisode will plus 100
+         //100: distance between start and end
          if (i !== 0) {
             startEpisode += 100;
          }
@@ -65,9 +67,15 @@ function Episodes({ data }) {
          }
          pairEpisodeList.push({ start: startEpisode, end: startEpisode + 99 });
       }
-     return  pairEpisodeList.map((item, index) => {
+      return pairEpisodeList.map((item, index) => {
          return (
-            <Button onClick={()=>setPage({start:item.start,end:item.end})} key={index} large roundXl className={cx('btn-tab')}>{`${item['start']}-${item['end']}`}</Button>
+            <Button
+               onClick={() => setPage({ start: item.start, end: item.end })}
+               key={index}
+               large
+               roundXl
+               className={cx('btn-tab')}
+            >{`${item['start']}-${item['end']}`}</Button>
          );
       });
    };
@@ -98,5 +106,7 @@ function Episodes({ data }) {
       return <Loading />;
    }
 }
-
+Episodes.propTypes = {
+   data: PropTypes.object,
+};
 export default Episodes;

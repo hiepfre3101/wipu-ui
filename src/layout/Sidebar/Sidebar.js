@@ -4,8 +4,15 @@ import { Button } from '~/components/Button';
 import { HomeIcon, StonkeIcon, GenreIcon } from '~/assets/Icon';
 import { FavoriteList } from '~/components/FavoriteList';
 import styles from './Sidebar.module.scss';
-
+import * as requestTopAnime from '~/services/topAnime';
+import withContent from '~/components/HOCs/withContent';
 const cx = classNames.bind(styles);
+const selectRequestTopAnime = {
+   getRequest: (props) => {
+      return requestTopAnime.getTopAnime(props);
+   },
+};
+const FavoriteAnime = withContent(FavoriteList,selectRequestTopAnime,false,[]);
 function Sidebar() {
    return (
       <div className={cx('wrapper')}>
@@ -24,7 +31,7 @@ function Sidebar() {
             </Button>
          </div>
          <div className={cx('favorite-block')}>
-            <FavoriteList />
+            <FavoriteAnime />
          </div>
          <footer className={cx('footer')}>
             <p className={cx('footer-title')}>WIPU Watch Copyright © 2022</p>
