@@ -46,9 +46,10 @@ function Episodes({ data }) {
          setTabs(quotient);
       } else {
          episodeState = data.episodes;
+         setTabs(1);
       }
       setEpisode(episodeState);
-   }, [data, page]);
+   }, [data]);
 
    const renderTab = () => {
       const pairEpisodeList = [];

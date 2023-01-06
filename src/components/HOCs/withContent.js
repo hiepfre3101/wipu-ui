@@ -2,16 +2,15 @@ import { useEffect, useState } from 'react';
 import Loading from '../Loading/Loading';
 import PropTypes from 'prop-types';
 //take 1 comp...
-const withContent = (WrappedComponent, selectRequest, hasPage) => {
+const withContent = (WrappedComponent, selectRequest, hasPage,props) => {
    //and return this component above.
-   console.log(hasPage);
    function CalledApiComp() {
       const [data, setData] = useState([]);
       const [page, setPage] = useState(1);
       const [loading, setLoading] = useState(true);
       useEffect(() => {
          const fetchApi = async () => {
-            const dataApiCalled = await selectRequest.getRequest(hasPage && page);
+            const dataApiCalled = await selectRequest.getRequest(page,...props);
             setData(dataApiCalled);
             setLoading(false);
          };

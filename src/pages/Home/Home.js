@@ -1,6 +1,5 @@
 import classNames from 'classnames/bind';
 
-
 import { Hero } from '~/components/Hero';
 import styles from './Home.module.scss';
 import { SeasonContent } from '~/components/SeasonContent';
@@ -8,6 +7,7 @@ import { TopContent } from '~/components/TopContent';
 import withContent from '~/components/HOCs/withContent';
 import * as requestLastEpisode from '~/services/seasonAnimeNow';
 import * as requestTopAnime from '~/services/topAnime';
+
 const selectRequestLastEpisode = {
    getRequest: (props) => {
       return requestLastEpisode.getSeasonRequest(props);
