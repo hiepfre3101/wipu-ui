@@ -1,20 +1,30 @@
 .wrapper{
     max-width: 100%;
     background: var(--bg-color);
-    padding:23px;
     padding-right: 50px;
     position: relative;
     top: 0;
     left: 0;
+}
+.error-bg{
+    padding:23px;
+    background-image: url('https://gifburg.com/images/gifs/anime/gifs/0002.gif');
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
 }
 .sidebar-wrap{
     max-width: 30%;
     min-height: 100vh;
     position: fixed;
     left: 25px;
+    top:23px;
 }
 .container{
-    max-width: 90%;
+    position: relative;
+    top:0;
+    left: 0;
+    max-width: 80%;
     margin-left: 300px;
     padding: 20px;
 }

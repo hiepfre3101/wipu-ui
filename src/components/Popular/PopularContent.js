@@ -10,12 +10,12 @@ import { AnimeIdContext } from '~/components/Context/AnimeIdContext';
 import styles from './Popular.module.scss';
 
 const cx = classNames.bind(styles);
-function PopularContent({ data, hasPage, page, handleNext, handlePrev }) {
+function PopularContent({ data, hasPage, page, handleNext, handlePrev,label}) {
    const animeIdContext = useContext(AnimeIdContext);
    return (
       <div className={cx('wrapper')}>
          <div className={cx('main-block')}>
-            <h2 className={cx('title')}>Popular</h2>
+            <h2 className={cx('title')}>{label}</h2>
             <div className={cx('wrap-anime')}>
                {data.map((item) => (
                   <Link

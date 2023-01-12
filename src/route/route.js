@@ -2,6 +2,8 @@ import Home from '~/pages/Home/Home';
 import Popular from '~/pages/Popular/Popular';
 import Genre from '~/pages/Genre/Genre';
 import Watch from '~/pages/Watch/Watch';
+import GenreResults from '~/components/GenrePage/GenreResults';
+
 const routes = [
    {
       path: '/',
@@ -14,7 +16,7 @@ const routes = [
       name: 'Popular',
    },
    {
-      path: '/genre',
+      path: '/genre/',
       component: Genre,
       name: 'Genre',
    },
@@ -22,6 +24,11 @@ const routes = [
       path: '/watch',
       component: Watch,
       name: 'Watch',
+   },
+   {
+      path: '/genre/:genre',
+      component:GenreResults ,
+      name: 'Genre detail',
    },
 ];
 

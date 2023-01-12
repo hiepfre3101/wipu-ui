@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DefaultLayout from './layout/DefaultLayout';
+import React from 'react';
 
+import DefaultLayout from './layout/DefaultLayout';
 import routes from './route/route';
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
                         path={route.path}
                         element={
                            <DefaultLayout>
-                                 <Page />
+                             <Page/>
                            </DefaultLayout>
                         }
                      />

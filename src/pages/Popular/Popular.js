@@ -7,7 +7,7 @@ const selectRequestPopularAnime = {
       return requestPopularAnime.getPopularAnime(props);
    },
 };
-const PopularAnime = withContent(PopularContent, selectRequestPopularAnime, true, []);
+const PopularAnime = withContent(PopularContent, selectRequestPopularAnime, true, [],'Popular');
 function Popular() {
    return <PopularAnime />;
 }

@@ -13,6 +13,7 @@ function LoginPhone() {
    const [phoneValue, setPhoneValue] = useState('');
    const [idValue, setIdValue] = useState('');
    const formMessageRef = useRef();
+   const codeMessageRef = useRef();
    const handleValidatePhone = (e, areaCode) => {
       const regexPhone = `(${areaCode}|0[3|5|7|8|9])+([0-9]{8})`;
       const re = new RegExp(regexPhone, 'g');
@@ -23,12 +24,22 @@ function LoginPhone() {
          formMessageRef.current.parentNode.style.border = '1px solid red';
       }
    };
+   const handleValidateCode = (e, constraint) => {
+      e.target.value.trim().length < constraint
+         ? (codeMessageRef.current.innerText = '')
+         : (codeMessageRef.current.innerText = `Enter ${constraint}-digit-code`);
+      if (codeMessageRef.current.innerText) {
+         codeMessageRef.current.parentNode.style.border = '1px solid red';
+      }
+   };
    const handlePhoneInput = (e) => {
       formMessageRef.current.parentNode.style.border = 'none';
       formMessageRef.current.innerText = '';
       setPhoneValue(e.target.value);
    };
    const handleCodeInput = (e) => {
+      codeMessageRef.current.parentNode.style.border = 'none';
+      codeMessageRef.current.innerText = '';
       setIdValue(e.target.value);
    };
    return (
@@ -62,15 +73,15 @@ function LoginPhone() {
                   type="text"
                   placeholder="Enter your code"
                   className={cx('form-control')}
+                  value={idValue}
                   onChange={handleCodeInput}
+                  onBlur={(e) => handleValidateCode(e, 6)}
                />
-               <Button small disabled={!phoneValue} className={cx('btn-sendcode')}>
+               <Button small disabled={!phoneValue || formMessageRef.current.innerText} className={cx('btn-sendcode')}>
                   Send Code
                </Button>
             </article>
-         </div>
-         <div className={cx('form-control')}>
-            <label className={cx('other-login')}>Log in with password</label>
+            <p className={cx('ivalid')} ref={codeMessageRef}></p>
          </div>
          <Button
             disabled={!phoneValue || !idValue || formMessageRef.current.innerText}

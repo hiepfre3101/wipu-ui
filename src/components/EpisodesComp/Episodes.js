@@ -49,7 +49,8 @@ function Episodes({ data }) {
          setTabs(1);
       }
       setEpisode(episodeState);
-   }, [data]);
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [data,page]);
 
    const renderTab = () => {
       const pairEpisodeList = [];

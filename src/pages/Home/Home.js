@@ -19,10 +19,10 @@ const selectRequestTopAnime = {
    },
 };
 const cx = classNames.bind(styles);
-const LastesEpisode = withContent(SeasonContent,selectRequestLastEpisode,true,[]);
-const TopAnime = withContent(TopContent,selectRequestTopAnime,false,[]);
-const HeroBanner = withContent(Hero,selectRequestTopAnime,false,[]);
-function Home() {
+function Home({forwardRef}) {
+   const TopAnime = withContent(TopContent,selectRequestTopAnime,false,[]);
+   const LastesEpisode = withContent(SeasonContent,selectRequestLastEpisode,true,[]);
+   const HeroBanner = withContent(Hero,selectRequestTopAnime,false,[]);
    return (
       <div className={cx('wrapper')}>
          <HeroBanner/>
