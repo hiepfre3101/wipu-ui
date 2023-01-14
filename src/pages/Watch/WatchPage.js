@@ -40,6 +40,9 @@ function WatchPage({data}) {
                      <p className={cx('desc-crumb')}>
                         Release: <span>{data.releaseDate}</span>
                      </p>
+                     <p className={cx('desc-crumb')}>
+                        Status: <span>{data.status}</span>
+                     </p>
                      <p className={cx('desc-crumb')}>{data.description}</p>
                   </div>
                </div>

@@ -22,7 +22,7 @@ const selectRequestAnime = {
 function Watch() {
    const animeIdContext = useContext(AnimeIdContext);
    const WatchComp = withContent(WatchPage, selectRequestAnime, false, [], '', animeIdContext.id);
-   const LastestEpisode = withContent(SeasonContent, selectRequest, true, []);
+   const LastestEpisode = withContent(SeasonContent, selectRequest,false, []);
    return (
       <div className={cx('wrapper')}>
          <WatchComp />

@@ -15,59 +15,60 @@ const cx = classNames.bind(styles);
 function Episodes({ data }) {
    const animeContext = useContext(AnimeIdContext);
    const [episode, setEpisode] = useState([]);
-   const [tabs, setTabs] = useState(1);
+   const [tabs, setTabs] = useState(0);
    const [page, setPage] = useState({ start: 0, end: 99 });
    const [src, setSrc] = useState('');
    useEffect(() => {
       window.scrollTo(0, 0);
-      const fetchApi = async () => {
-         const srcVideo = await request.getVideoEmbed(animeContext.idEpisode);
-         setSrc(srcVideo.headers.Referer); //embed link in api respond
-      };
-      fetchApi();
-   }, [animeContext.idEpisode]);
+      if (data.episodes.length !== 0) {
+         const fetchApi = async () => {
+            const srcVideo = await request.getVideoEmbed(animeContext.idEpisode);
+            setSrc(srcVideo.headers.Referer); //embed link in api respond
+         };
+         fetchApi();
+      }
+   }, [animeContext.idEpisode, data.episodes.length]);
 
    useEffect(() => {
-      let episodeState = [];
-      const oddEpisode = data.episodes.length % 100;
-      const quotient = (data.episodes.length - oddEpisode) / 100;
-      const handleEpisode = (start, end) => {
-         data.episodes.forEach((item, index) => {
-            //index in array begin with index = 0
-            // start and end is the number of episode, so I minus 1
-            if (index >= start - 1 && index <= end - 1) {
-               episodeState.push(item);
-            }
-            return;
-         });
-      };
-      handleEpisode(page['start'], page['end']);
-      if (quotient !== 0) {
-         setTabs(quotient);
-      } else {
-         episodeState = data.episodes;
-         setTabs(1);
+      if (data.episodes.length !== 0) {
+         let episodeState = [];
+         const oddEpisode = data.episodes.length % 100;
+         const quotient = (data.episodes.length - oddEpisode) / 100;
+         const handleEpisode = (start, end) => {
+            data.episodes.forEach((item, index) => {
+               //index in array begin with index = 0
+               // start and end is the number of episode, so I minus 1
+               if (index >= start - 1 && index <= end - 1) episodeState.push(item);
+               return;
+            });
+         };
+         handleEpisode(page['start'], page['end']);
+         if (quotient !== 0) setTabs(quotient);
+         else {
+            episodeState = data.episodes;
+            setTabs(1);
+         }
+         setEpisode(episodeState);
       }
-      setEpisode(episodeState);
-   // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, [data,page]);
+   }, [data, page]);
 
    const renderTab = () => {
       const pairEpisodeList = [];
-      let startEpisode = 1;
-      for (let i = 0; i < tabs; i++) {
-         // if it's the fisrt time, startEpisode = 1
-         //if it's not the first time the loop start, startEpisode will plus 100
-         //100: distance between start and end
-         if (i !== 0) {
-            startEpisode += 100;
+      if (tabs.length === 0) return null;
+      else {
+         let startEpisode = 1;
+         for (let i = 0; i < tabs; i++) {
+            // If it's the fisrt time, startEpisode = 1
+            //If it's not the first time the loop start, startEpisode will plus 100
+            //100: distance between start and end
+            if (i !== 0) startEpisode += 100;
+            // if it's the end of the loop, end number episode is the last number of this anime
+            if (i === tabs - 1) {
+               pairEpisodeList.push({ start: startEpisode, end: data.episodes[data.episodes.length - 1].number });
+               break;
+            }
+            pairEpisodeList.push({ start: startEpisode, end: startEpisode + 99 });
          }
-         // if it's the end of the loop, end number episode is the last number of this anime
-         if (i === tabs - 1) {
-            pairEpisodeList.push({ start: startEpisode, end: data.episodes[data.episodes.length - 1].number });
-            break;
-         }
-         pairEpisodeList.push({ start: startEpisode, end: startEpisode + 99 });
       }
       return pairEpisodeList.map((item, index) => {
          return (
@@ -84,7 +85,9 @@ function Episodes({ data }) {
    if (data) {
       return (
          <div className={cx('wrapper')}>
-            <iframe src={src} frameBorder="0" height={'500'} width={'100%'} allowFullScreen></iframe>
+            {data.episodes.length > 0 && (
+               <iframe src={src} frameBorder="0" height={'500'} width={'100%'} allowFullScreen></iframe>
+            )}
             <div className={cx('list-page-block')}>
                <div className={cx('title')}>Episode {animeContext.numberEpisode}</div>
                <div className={cx('tab-page')}>{renderTab()}</div>

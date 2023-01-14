@@ -6,7 +6,6 @@ import ErrorPage from '../404Page/ErrorPage';
 //take 1 comp...
 const withContent = (WrappedComponent, selectRequest, hasPage, option, label, path) => {
    //and return this component above.
-   console.log(option);
    function CalledApiComp() {
       const [data, setData] = useState();
       const [page, setPage] = useState(1);
@@ -35,7 +34,7 @@ const withContent = (WrappedComponent, selectRequest, hasPage, option, label, pa
       };
       if (loading) {
          return <Loading />;
-      } else if (data.error || !data || data.message) {
+      } else if (!data || data.error || data.message) {
          return <ErrorPage />;
       } else {
          return <WrappedComponent data={data} {...passProps} />;

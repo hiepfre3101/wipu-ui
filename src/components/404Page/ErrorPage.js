@@ -15,7 +15,6 @@ function ErrorPage(error) {
                  <p className={cx('dot')}>.</p>
            </div>
        </h1>
-           
             <h1>some thing went wrong !</h1>
        </div>
       </div>

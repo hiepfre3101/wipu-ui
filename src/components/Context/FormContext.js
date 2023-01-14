@@ -1,38 +1,11 @@
 import { createContext } from 'react';
 import { useState } from 'react';
 
-import LoginPhone from '../Login/LoginPhone';
-import LoginDefault from '~/components/Login/LoginDefault';
-import { FacebookIcon, GoogleIcon, UserIcon } from '~/assets/Icon';
+import LoginPhone from '../Auth/LoginPhone';
+import LoginDefault from '~/components/Auth/LoginDefault';
+
 
 const FormContext = createContext();
-const loginSteps = [
-   {
-      name:"facebook",
-      title: 'Login with Facebook',
-      icon: <FacebookIcon />,
-   },
-   {
-      name:"google",
-      title: 'Login with Google',
-      icon: <GoogleIcon />,
-   },
-   {
-      name:"phone",
-      title: 'Login with phone or email',
-      icon: <UserIcon />,
-      children:[
-         {
-            type: 'phone',
-            element: <LoginPhone />,
-         },
-         {
-            type: 'email',
-            element: <h1>Email</h1>,
-         },
-      ]
-   },
-];
 const MULTI_FORM = [
    {
       type: 'login',
@@ -59,14 +32,14 @@ function FormContextProvider({ children }) {
    const [historySteps, setHistorySteps] = useState([MULTI_FORM[0]]);
    const currentStep = historySteps[historySteps.length - 1];
    const handleChangeForm = (type) => {
-       const tab = MULTI_FORM.filter(item=>{
-             return item.type === type;
+      const tab = MULTI_FORM.filter((item) => {
+         return item.type === type;
       });
-      setHistorySteps((prev) => [...prev,...tab]);
+      setHistorySteps((prev) => [...prev, ...tab]);
    };
-  const resertStep=()=>{
-     setHistorySteps([MULTI_FORM[0]]);
-  }
+   const resertStep = () => {
+      setHistorySteps([MULTI_FORM[0]]);
+   };
    const handleBack = () => {
       setHistorySteps((prev) => prev.slice(0, prev.length - 1));
    };
@@ -76,7 +49,7 @@ function FormContextProvider({ children }) {
       currentStep,
       handleBack,
       handleChangeForm,
-      resertStep
+      resertStep,
    };
    return <FormContext.Provider value={value}>{children}</FormContext.Provider>;
 }

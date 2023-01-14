@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import classNames from 'classnames/bind';
 
-
 import { Button } from '../Button';
 import { FacebookIcon, GoogleIcon, UserIcon } from '~/assets/Icon';
 import { FormContext } from '../Context/FormContext';
@@ -9,17 +8,17 @@ import styles from './Login.module.scss';
 const cx = classNames.bind(styles);
 const loginOptions = [
    {
-      type:"facebook",
+      type: 'facebook',
       title: 'Login with Facebook',
       icon: <FacebookIcon />,
    },
    {
-      type:"google",
+      type: 'google',
       title: 'Login with Google',
       icon: <GoogleIcon />,
    },
    {
-      type:"phone",
+      type: 'phone',
       title: 'Login with phone or email',
       icon: <UserIcon />,
       onClick: true,
