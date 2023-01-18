@@ -6,6 +6,10 @@ import styles from './Watch.module.scss';
 import Episodes from '~/components/EpisodesComp/Episodes';
 const cx = classNames.bind(styles);
 function WatchPage({data}) {
+ const saveAnime = (id,data)=>{
+    const anime = localStorage.getItem(id);
+    !anime && localStorage.setItem(id,JSON.stringify(data));
+ }
       return (
          <div >
             <div className={cx('banner')}>
@@ -20,7 +24,7 @@ function WatchPage({data}) {
                            <h3 className={cx('name-default')}>{data.title}</h3>
                            <p className={cx('name-jp')}>{data.otherName}</p>
                         </div>
-                        <Button leftIcon={<SaveIcon />} roundL primary className={cx('btn-save')}>
+                        <Button leftIcon={<SaveIcon />} roundL primary className={cx('btn-save')} onClick={()=>saveAnime(data.id,data)}>
                            Save
                         </Button>
                      </div>
@@ -28,25 +32,6 @@ function WatchPage({data}) {
                </div>
             </div>
             <Episodes data={data} />
-            <div className={cx('wrap-info')}>
-               <p className={cx('info-title')}>Anime Info</p>
-               <div className={cx('info-block')}>
-                  <img src={data.image} alt="img" className={cx('general-img')} />
-                  <div className={cx('info-desc')}>
-                     <p className={cx('desc-name')}>{data.title}</p>
-                     <p className={cx('desc-crumb')}>
-                        Episode Count: <span>{data.totalEpisodes}</span>
-                     </p>
-                     <p className={cx('desc-crumb')}>
-                        Release: <span>{data.releaseDate}</span>
-                     </p>
-                     <p className={cx('desc-crumb')}>
-                        Status: <span>{data.status}</span>
-                     </p>
-                     <p className={cx('desc-crumb')}>{data.description}</p>
-                  </div>
-               </div>
-            </div>
          </div>
       );
    }

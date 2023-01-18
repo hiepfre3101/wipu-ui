@@ -1,14 +1,13 @@
+@import '../../style/varibles';
 .wrapper{
     max-width: 100%;
     margin-top: 10px;
 }
 .main-content{
      display: block;
-}
-@media screen and (min-width:1500px){
-    .main-content{
-        display: flex;
+     @include breakPoint(xl){
+          display: flex;
         justify-content: start;
         gap: 5rem;
-    }
+     }
 }

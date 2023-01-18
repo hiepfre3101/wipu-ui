@@ -6,7 +6,7 @@ import { Button } from '~/components/Button';
 import { FormContext } from '~/components/Context/FormContext';
 import { Modal } from '~/components/Modal';
 import ModalAuth from '~/components/Modal/ModalAuth';
-import ModalSave from '~/components/Modal/ModalSave';
+import ModalSave from '~/components/Modal/ModalSave/ModalSave';
 import { Search } from '../Search';
 
 import styles from './Header.module.scss';
@@ -15,6 +15,7 @@ const cx = classNames.bind(styles);
 function Header() {
    const [isOpenModal, setIsOpenModal] = useState(false);
    const [savedModal, setSavedModal] = useState(false);
+  
    const formContext = useContext(FormContext);
    const handleCloseModal = () => {
       formContext.resertStep();

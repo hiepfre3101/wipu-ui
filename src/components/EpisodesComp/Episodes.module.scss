@@ -1,5 +1,12 @@
+@import '../../style/varibles';
 .wrapper{
     margin-top: 150px;
+    display: block;
+    @include breakPoint(xl){
+        display: grid;
+        grid-template-columns: repeat(2,49%);
+        gap:3rem;
+    }
 }
 .title{
     max-width: 150px;
@@ -40,14 +47,28 @@
         }
     }
 }
+.video{
+    width: 100%;
+   height: auto;
+   aspect-ratio: 4/3;
+   @include breakPoint(xl){
+    aspect-ratio: 16/9;
+   }
+}
 .list-page-block{
-       background-color: white;
+    background-color: white;
     border-radius: 20px;
     padding: 10px;
-}
-.list-page{
+    margin-top: 50px;
+    @include breakPoint(xl){
+        margin-top: 0px;
+    }
+  & .list-page{
    display: grid;
-   grid-template-columns:repeat(12,6%);
+   grid-template-columns:repeat(auto-fill,5%);
+   @include breakPoint(xl){
+     grid-template-columns:repeat(auto-fill,5%);
+   }
    gap:20px;
     margin-top: 20px;
     & .btn-page{
@@ -64,5 +85,48 @@
           background-color: #13a897;
           transform: scale(1.1);
         }
+    }
+}
+}
+.wrap-info{
+    margin-top: 70px;
+    @include breakPoint(xl){
+        margin-top: 0px;
+    }
+    background-color: var(--second-color);
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    & .info-title{
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    & .info-block{
+        margin-top: 15px;
+        display: flex;
+        justify-content: start;
+    }
+    & .info-desc{
+        margin-left: 30px;
+        height: 200px;
+        overflow: auto;
+        &::-webkit-scrollbar {
+            width: 10px;
+          }
+        &::-webkit-scrollbar-track {
+            background:transparent;
+          }  
+        &::-webkit-scrollbar-thumb {
+            border-radius: 20px;
+          }
+       & .desc-name{
+        font-size: 2rem;
+        font-weight: 700;
+       } 
+    }
+    & .general-img{
+        width: 15rem;
+        height: 20rem;
+        border-radius: 10px;
     }
 }

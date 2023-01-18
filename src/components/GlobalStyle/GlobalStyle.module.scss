@@ -10,6 +10,8 @@
   --rem-web-tepmlate:20px;
   --shadow-color:#99f6e4;
   --text-dark-color:#374151;
+  --lg-screen:1500px;
+  --md-screen:997px;
 }
 
 *{
@@ -36,4 +38,18 @@ ul,li{
 }
 a{
   text-decoration: none;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+ display: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(233, 233, 233, 0.562); 
+  border-radius: 10px;
 }

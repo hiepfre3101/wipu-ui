@@ -85,9 +85,30 @@ function Episodes({ data }) {
    if (data) {
       return (
          <div className={cx('wrapper')}>
-            {data.episodes.length > 0 && (
-               <iframe src={src} frameBorder="0" height={'500'} width={'100%'} allowFullScreen></iframe>
-            )}
+            <div className={cx('flex-block')}>
+               {data.episodes.length > 0 && (
+                  <iframe src={src} frameBorder="0" className={cx('video')} allowFullScreen></iframe>
+               )} 
+               <div className={cx('wrap-info')}>
+                  <p className={cx('info-title')}>Anime Info</p>
+                  <div className={cx('info-block')}>
+                     <img src={data.image} alt="img" className={cx('general-img')} />
+                     <div className={cx('info-desc')}>
+                        <p className={cx('desc-name')}>{data.title}</p>
+                        <p className={cx('desc-crumb')}>
+                           Episode Count: <span>{data.totalEpisodes}</span>
+                        </p>
+                        <p className={cx('desc-crumb')}>
+                           Release: <span>{data.releaseDate}</span>
+                        </p>
+                        <p className={cx('desc-crumb')}>
+                           Status: <span>{data.status}</span>
+                        </p>
+                        <p className={cx('desc-crumb')}>{data.description}</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
             <div className={cx('list-page-block')}>
                <div className={cx('title')}>Episode {animeContext.numberEpisode}</div>
                <div className={cx('tab-page')}>{renderTab()}</div>
