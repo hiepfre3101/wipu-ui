@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import React from 'react';
 import Loading from '../Loading/Loading';
 import PropTypes from 'prop-types';
-import ErrorPage from '../404Page/ErrorPage';
+import ErrorPage from '../../pages/404Page/ErrorPage';
 //take 1 comp...
 const withContent = (WrappedComponent, selectRequest, hasPage, option, label, path) => {
    //and return this component above.

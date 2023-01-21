@@ -15,7 +15,14 @@
         text-decoration: underline;
     }
 }
-
+.label{
+    flex:1;
+    font-weight: 500;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .label-block{
     display: flex;
     justify-content:space-between;

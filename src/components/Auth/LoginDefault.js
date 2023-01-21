@@ -9,17 +9,17 @@ const cx = classNames.bind(styles);
 const loginOptions = [
    {
       type: 'facebook',
-      title: 'Login with Facebook',
+      title: 'Continue with Facebook',
       icon: <FacebookIcon />,
    },
    {
       type: 'google',
-      title: 'Login with Google',
+      title: 'Continue with Google',
       icon: <GoogleIcon />,
    },
    {
       type: 'phone',
-      title: 'Login with phone or email',
+      title: 'Continue with phone or email',
       icon: <UserIcon />,
       onClick: true,
    },
@@ -30,7 +30,7 @@ function LoginDefault() {
       if (!item.onClick) {
          return (
             <Button key={index} leftIcon={item.icon} large className={cx('btn-login')}>
-               {item.title}
+               <p className={cx('label')}>{item.title}</p>
             </Button>
          );
       } else {
@@ -42,7 +42,7 @@ function LoginDefault() {
                className={cx('btn-login')}
                onClick={() => formContext.handleChangeForm(item.type)}
             >
-               {item.title}
+             <p className={cx('label')}>{item.title}</p>
             </Button>
          );
       }
