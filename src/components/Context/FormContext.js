@@ -4,47 +4,49 @@ import { useState } from 'react';
 import LoginPhone from '../Auth/LoginPhone';
 import LoginDefault from '~/components/Auth/LoginDefault';
 
-
 const FormContext = createContext();
-const MULTI_FORM = [
+const forms = [
    {
-      type: 'login',
-      label: 'Log in to Wipu',
+      type: 'default',
+      labelLogin: 'Log in to Wipu',
+      labelSignup: 'Sign up for Wipu',
       element: <LoginDefault />,
    },
    {
-      type: 'phone',
-      label: 'Log in with phone',
+      type: 'phone-login',
+      labelLogin: 'Log in',
+      labelSignup: 'Sign up',
       element: <LoginPhone />,
    },
    {
-      type: 'email',
-      label: 'Log in with Email',
+      type: 'email-login',
+      labelLogin: 'Log in ',
+      labelSignup: 'Sign up',
       element: <h1>Email</h1>,
-   },
-   {
-      type: 'signup',
-      label: 'Sign up',
-      element: <h1>Sign up</h1>,
    },
 ];
 function FormContextProvider({ children }) {
-   const [historySteps, setHistorySteps] = useState([MULTI_FORM[0]]);
+   const [historySteps, setHistorySteps] = useState([forms[0]]);
+   const [status, setStatus] = useState(true); //status : true=login, false=signup
    const currentStep = historySteps[historySteps.length - 1];
    const handleChangeForm = (type) => {
-      const tab = MULTI_FORM.filter((item) => {
+      const tab = forms.filter((item) => {
          return item.type === type;
       });
       setHistorySteps((prev) => [...prev, ...tab]);
    };
    const resertStep = () => {
-      setHistorySteps([MULTI_FORM[0]]);
+      setHistorySteps([forms[0]]);
    };
    const handleBack = () => {
-      setHistorySteps((prev) => prev.slice(0, prev.length - 1));
+      setHistorySteps([forms[0]]);
    };
-
+   const changeStatus = () => {
+      setStatus(!status);
+   };
    const value = {
+      status,
+      changeStatus,
       historySteps,
       currentStep,
       handleBack,

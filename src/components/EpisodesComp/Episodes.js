@@ -121,7 +121,7 @@ function Episodes({ data }) {
                         to={`/watch?id=${item.id}`}
                         onClick={() => animeContext.goToWatch(item.id)}
                      >
-                        {item.number}
+                       <p className={cx('page-title')}> {item.number}</p>
                      </Button>
                   ))}
                </div>

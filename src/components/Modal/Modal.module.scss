@@ -25,12 +25,13 @@
     overflow: hidden;
 }
 .wrap-outer{
-    width: calc(100% - 10px); 
-    height: 200%;
-    overflow: hidden;
+    height: 83%;
+    overflow: auto;
     & .body-login{
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 }
 .label{
@@ -47,8 +48,9 @@
 }
 .btn-block{
     width: 450px;
+    max-width: 90%;
     padding-top:100px;
-    height: 350px;
+    height: 80%;
     overflow-y: auto;
    display: flex;
    flex-direction: column;

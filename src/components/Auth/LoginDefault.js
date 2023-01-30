@@ -18,7 +18,7 @@ const loginOptions = [
       icon: <GoogleIcon />,
    },
    {
-      type: 'phone',
+      type: 'phone-login',
       title: 'Continue with phone or email',
       icon: <UserIcon />,
       onClick: true,

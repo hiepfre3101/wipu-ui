@@ -28,7 +28,7 @@ function Button({
       ...passProps,
    };
    if (disabled) {
-      delete props.onClick;
+      props.onClick = (e) => e.preventDefault();
    }
    let Comp = 'button';
    if (to) {
@@ -49,6 +49,8 @@ function Button({
       nonBg,
       disabled,
       leftImg,
+      leftIcon,
+      rightIcon,
    });
 
    return (

@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
@@ -17,7 +17,6 @@ function Search() {
    const [searchResult, setSearchResult] = useState([]);
    const [haveString, setHaveString] = useState(false);
    const finalValue = useCompelete(search, 800);
-   const inputRef = useRef();
    useEffect(() => {
       if (finalValue.trim() === '') {
          setSearch('');
@@ -30,7 +29,7 @@ function Search() {
       };
       fetchApi();
    }, [finalValue]);
-   
+
    const handleSearch = (e) => {
       const searchValue = e.target.value;
       if (!searchValue.startsWith(' ') || searchValue !== '') {
@@ -58,7 +57,6 @@ function Search() {
       >
          <form className={cx('search-block')}>
             <input
-               ref={inputRef}
                type="text"
                className={cx('input')}
                placeholder={'Search...'}
