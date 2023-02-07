@@ -53,3 +53,11 @@ a{
   background: rgba(233, 233, 233, 0.562); 
   border-radius: 10px;
 }
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+}
+select::-ms-expand{
+  display: none;
+}

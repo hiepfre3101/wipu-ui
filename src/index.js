@@ -7,9 +7,9 @@ import GlobalStyle from './components/GlobalStyle/GlobalStyle';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-   <GlobalStyle>
-      <AnimeIdProvider>
-         <App />
-      </AnimeIdProvider>
-   </GlobalStyle>,
+      <GlobalStyle>
+         <AnimeIdProvider>
+            <App />
+         </AnimeIdProvider>
+      </GlobalStyle>
 );

@@ -4,7 +4,7 @@ import Loading from '../Loading/Loading';
 import PropTypes from 'prop-types';
 import ErrorPage from '../../pages/404Page/ErrorPage';
 //take 1 comp...
-const withContent = (WrappedComponent, selectRequest, hasPage, option, label, path) => {
+const withContent = (WrappedComponent, selectRequest, hasPage = false, option = [], label = '', path = '') => {
    //and return this component above.
    function CalledApiComp() {
       const [data, setData] = useState();
@@ -18,7 +18,7 @@ const withContent = (WrappedComponent, selectRequest, hasPage, option, label, pa
          };
          fetchApi();
          // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, [page, option]);
+      }, [page, option, path]);
       const handleNext = () => {
          setPage(page + 1);
       };

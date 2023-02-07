@@ -65,12 +65,15 @@
     color: #9f9fa8;
     font-size: 15px;
 }
+.date-group{
+    width: 80%;
+    height: 100%;
+    padding-bottom: 20px;
+}
 .date-block{
-    width: 100%;
-    position: relative;
+   
   & .form-date{
    margin-top: 20px;
-   margin-bottom: 20px;
      display: flex;
      justify-content: space-between;
      align-items: center;
@@ -78,17 +81,68 @@
   }  
  }
 .date-control{
-padding: 10px 15px;
-& .date-title{
-   color: #9f9fa8;
+    width: 30%;
+    background-color: rgba(241,241,241,1);
+    border-radius: 5px;
+    position: relative;
+    & .select-input{ 
+        cursor: pointer;
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        padding: 15px 10px; 
+        font-size: 1.5rem;
+    } 
+    &:focus .date-title{
+        outline: none;
+        border: none;
+        background-color: white;
+    }
+    & .date-title{
+    color: #9f9fa8;
+    }
+    & .icon{
+       position: absolute;
+       right: 2%;
+       top:35%;
+       transform: translate(-40%,-2%);
+    }
 }
-}
-.btn-sendcode{
+.input-block{
     height: 100%;
-    border: 1px solid rgba(51,51,51,0.5) !important;
-    font-size: 1.5rem !important;
-  }
-  .submit-btn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    & .btn-show{
+        width: 10%;
+        cursor: pointer;
+        margin-right: 10px;
+        font-size: 1.3rem;
+        color: #9f9fa8;
+        text-decoration: underline;
+    }
+}
+.notice-block{
+    display: block;
+    & .notice-title{
+        font-weight: 600;
+        font-size: 1.3rem;
+        padding: 0;
+    }
+    & .notice-desc{
+        color: rgb(163, 163, 163);
+        font-size: 1.2rem;
+        padding: 0;
+    }
+}
+.down-menu{
+    width: 100%;
+    background-color: white;
+    overflow: auto;
+    border: 1px solid black;
+}
+.submit-btn{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,14 +151,15 @@ padding: 10px 15px;
     color: white;
     margin-top: 20px;
   }
-  .btn-login{
+
+.btn-login{
     width: 300px;
     background-color: white;
     border: 1px solid rgba(51,51,51,0.3) !important;
 }
 .ivalid{
     font-size: 1.2rem;
-    color: red;
+    color: red !important;
     padding: 5px;
 }  
 .borderRed{

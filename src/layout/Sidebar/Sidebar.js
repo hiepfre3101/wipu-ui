@@ -34,7 +34,7 @@ function Sidebar() {
             <FavoriteAnime />
          </div>
          <footer className={cx('footer')}>
-            <p className={cx('footer-title')}>WIPU Watch Copyright © 2022</p>
+            <p className={cx('footer-title')}>EE Watch Copyright © 2022</p>
          </footer>
       </div>
    );

@@ -3,13 +3,14 @@ import { useState } from 'react';
 
 import LoginPhone from '../Auth/LoginPhone';
 import LoginDefault from '~/components/Auth/LoginDefault';
+import LoginEmail from '../Auth/LoginEmail';
 
 const FormContext = createContext();
 const forms = [
    {
       type: 'default',
-      labelLogin: 'Log in to Wipu',
-      labelSignup: 'Sign up for Wipu',
+      labelLogin: 'Log in to EE',
+      labelSignup: 'Sign up for EE',
       element: <LoginDefault />,
    },
    {
@@ -22,7 +23,7 @@ const forms = [
       type: 'email-login',
       labelLogin: 'Log in ',
       labelSignup: 'Sign up',
-      element: <h1>Email</h1>,
+      element: <LoginEmail/>,
    },
 ];
 function FormContextProvider({ children }) {
@@ -36,6 +37,7 @@ function FormContextProvider({ children }) {
       setHistorySteps((prev) => [...prev, ...tab]);
    };
    const resertStep = () => {
+      setStatus(true);
       setHistorySteps([forms[0]]);
    };
    const handleBack = () => {

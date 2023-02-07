@@ -29,7 +29,7 @@ function LoginDefault() {
    return loginOptions.map((item, index) => {
       if (!item.onClick) {
          return (
-            <Button key={index} leftIcon={item.icon} large className={cx('btn-login')}>
+            <Button key={index} leftIcon={item.icon} large className={cx('btn-login')} disabled>
                <p className={cx('label')}>{item.title}</p>
             </Button>
          );

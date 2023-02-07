@@ -188,7 +188,7 @@ export const BackIcon = ({ classname, width = '20px', height = '20px' }) => (
       ></path>
    </svg>
 );
-export const SelectIcon = ({ classname, width = '20px', height = '20px' }) => (
+export const SelectIcon = ({ classname, width = '1.5rem', height = '1.5rem' }) => (
    <svg
       className={classname}
       width={width}
@@ -278,3 +278,5 @@ export const FilmIcon = ({ classname, widht, height }) => (
       <line x1="17" y1="7" x2="22" y2="7"></line>
    </svg>
 );
+
+

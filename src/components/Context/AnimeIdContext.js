@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createContext } from 'react';
 
 const AnimeIdContext = createContext();
@@ -8,9 +8,13 @@ function AnimeIdProvider({ children }) {
    let idAnime = idEpisode;
    const [idAnimeState, setIdAnimeState] = useState(idAnime);
    const [numberEpisode, setNumberEpisode] = useState(1);
-   if (idEpisode) {
-      idAnime = idEpisode.slice(0, idEpisode.lastIndexOf('-episode'));
-   }
+   useEffect(() => {
+      if (idEpisode) {
+         // eslint-disable-next-line react-hooks/exhaustive-deps
+         idAnime = idEpisode.slice(0, idEpisode.lastIndexOf('-episode'));
+         setIdAnimeState(idAnime);
+      }
+   }, [idEpisode]);
    const goToWatch = (idEpisode) => {
       setNumberEpisode(idEpisode.slice(idEpisode.lastIndexOf('-') + 1));
       setIdAnimeState(idEpisode.slice(0, idEpisode.lastIndexOf('-episode')));
