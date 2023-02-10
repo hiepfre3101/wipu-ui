@@ -1,12 +1,19 @@
+@import '../../style/varibles';
 .search-block{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 8px 12px;
-    min-width: 350px;
+    min-width: 260px;
     height: 46px;
     border-radius: 900px;
     background-color: #d1d5db;
+    @include breakPoint(md){
+      min-width: 300px;
+    }
+    @include breakPoint(xl){
+      min-width: 380px;
+    }
 }
 .input{
     flex:1;

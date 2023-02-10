@@ -1,7 +1,9 @@
 import classNames from 'classnames/bind';
 import { useContext } from 'react';
 import { useState, useEffect } from 'react';
-import { SaveIcon } from '~/assets/Icon';
+import Tippy from '@tippyjs/react/headless';
+
+import { BarIcon, SaveIcon, HomeIcon, StonkeIcon, GenreIcon } from '~/assets/Icon';
 import { Button } from '~/components/Button';
 import { FormContext } from '~/components/Context/FormContext';
 import { Modal } from '~/components/Modal';
@@ -15,7 +17,7 @@ const cx = classNames.bind(styles);
 function Header() {
    const [isOpenModal, setIsOpenModal] = useState(false);
    const [savedModal, setSavedModal] = useState(false);
-  
+   const [isOpenMenu, setIsOpenMenu] = useState(false);
    const formContext = useContext(FormContext);
    const handleCloseModal = () => {
       formContext.resertStep();
@@ -27,17 +29,66 @@ function Header() {
       else document.body.style.overflowY = 'auto';
    }, [isOpenModal, savedModal]);
 
+   //Tippy block for responsive
    return (
       <div className={cx('wrapper')}>
          <div className={cx('flex-col--left')}>
             <p className={cx('label')}>Welcome!</p>
+            <Tippy
+               visible={isOpenMenu}
+               interactive
+               zIndex={9999}
+               onClickOutside={() => {
+                  setIsOpenMenu(false);
+               }}
+               render={(atr) => (
+                  <div {...atr} tabIndex="99" className={cx('nav-aside')}>
+                     <Button roundM leftIcon={<HomeIcon />} className={cx('nav-btn')} primary nonBg to={'/'}>
+                        Home
+                     </Button>
+                     <Button roundM leftIcon={<StonkeIcon />} className={cx('nav-btn')} primary nonBg to={'/popular'}>
+                        Popular
+                        <svg width={24} height={24} className={cx('animate')}>
+                           <circle cx={12} cy={12} r={12} fill={'#99f6e4'}></circle>
+                        </svg>
+                     </Button>
+                     <Button roundM leftIcon={<GenreIcon />} className={cx('nav-btn')} primary nonBg to={'/genre'}>
+                        Genre
+                     </Button>
+                     <Button
+                        onClick={() => setIsOpenModal(true)}
+                        roundM
+                        className={cx('nav-btn',{forMediumSize:'forMediumSize'})}
+                        primary
+                        nonBg
+                     >
+                        Login
+                     </Button>
+                     <Button
+                        onClick={() => setSavedModal(true)}
+                        roundM
+                        className={cx('nav-btn',{forMediumSize:'forMediumSize'})}
+                        primary
+                        nonBg
+                     >
+                        Saved
+                     </Button>
+                  </div>
+               )}
+            >
+               <div>
+                  <Button onClick={() => setIsOpenMenu(!isOpenMenu)} className={cx('btn-show-menu')} primary roundXl>
+                     <BarIcon />
+                  </Button>
+               </div>
+            </Tippy>
             <div className={cx('search-wrap')}>
                <Search />
             </div>
          </div>
          <div className={cx('flex-col--right')}>
             <Button roundXl className={cx('auth-btn')} large onClick={() => setIsOpenModal(true)}>
-               Login
+               <span className={cx('auth-desc')}>Login</span>
             </Button>
             <Button
                roundXl
@@ -46,7 +97,7 @@ function Header() {
                leftIcon={<SaveIcon />}
                onClick={() => setSavedModal(true)}
             >
-               Saved
+               <span className={cx('auth-desc')}>Saved</span>
             </Button>
          </div>
          <Modal isOpenModal={isOpenModal} onClose={handleCloseModal}>

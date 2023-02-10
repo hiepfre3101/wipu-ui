@@ -65,8 +65,9 @@
     }
   & .list-page{
    display: grid;
-   grid-template-columns:repeat(auto-fill,5%);
-   @include breakPoint(xl){
+   grid-template-columns:repeat(auto-fill,10%);
+   gap:1rem;
+   @include breakPoint(lg){
      grid-template-columns:repeat(auto-fill,5%);
    }
    gap:20px;
@@ -129,8 +130,12 @@
        } 
     }
     & .general-img{
-        width: 15rem;
-        height: 20rem;
+        width: 10rem;
+        height: 13rem;
         border-radius: 10px;
+        @include breakPoint(lg){
+            width: 15rem;
+            height: 20rem;
+        }
     }
 }

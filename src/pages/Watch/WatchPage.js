@@ -20,12 +20,9 @@ function WatchPage({data}) {
                   </div>
                   <div className={cx('desc-block')}>
                      <div className={cx('name-block')}>
-                        <div className={cx('name')}>
                            <h3 className={cx('name-default')}>{data.title}</h3>
-                           <p className={cx('name-jp')}>{data.otherName}</p>
-                        </div>
                         <Button leftIcon={<SaveIcon />} roundL primary className={cx('btn-save')} onClick={()=>saveAnime(data.id,data)}>
-                           Save
+                           <span className={cx('btn-title')}>Save</span>
                         </Button>
                      </div>
                   </div>

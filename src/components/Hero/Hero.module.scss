@@ -1,3 +1,4 @@
+@import '../../style/varibles';
 .wrapper{
     max-width: 100%;
     margin: auto;
@@ -38,10 +39,15 @@
     left: 50px;
     & .title{
         color: white;
-        font-size: 3rem;
+        font-size: 2rem;
+        @include breakPoint(lg){
+            font-size: 3rem;
+        }
         font-weight: 700;
         margin-bottom: 20px;
-        width: 500px;
+        max-width: 500px;
+        max-height: fit-content;
+        overflow: hidden;
     }
 }
 .title{
@@ -67,18 +73,22 @@
     }
  }
 .right-block{
-    width: 25%;
-    height: 150px; 
-    padding: 10px;
-    border-top-left-radius:20px ;
-    border-bottom-left-radius:20px ;
-    background-color: rgba(255, 255, 255, 0.314);
-    position: absolute;
-    bottom: 50px;
-    right: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    display: none;
+    @include breakPoint(lg){
+        display: block;
+        width: 25%;
+        height: 150px; 
+        padding: 10px;
+        border-top-left-radius:20px ;
+        border-bottom-left-radius:20px ;
+        background-color: rgba(255, 255, 255, 0.314);
+        position: absolute;
+        bottom: 50px;
+        right: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 }
 .next-img{
     width: 8rem;

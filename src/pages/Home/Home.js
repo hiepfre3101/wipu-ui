@@ -19,7 +19,7 @@ const selectRequestTopAnime = {
    },
 };
 const cx = classNames.bind(styles);
-function Home({forwardRef}) {
+function Home() {
    const TopAnime = withContent(TopContent,selectRequestTopAnime,false,[]);
    const LastesEpisode = withContent(SeasonContent,selectRequestLastEpisode,true,[]);
    const HeroBanner = withContent(Hero,selectRequestTopAnime,false,[]);

@@ -37,7 +37,7 @@ function Episodes({ data }) {
          const handleEpisode = (start, end) => {
             data.episodes.forEach((item, index) => {
                //index in array begin with index = 0
-               // start and end is the number of episode, so I minus 1
+               // start and end is the number of episode start from 1, so I minus 1
                if (index >= start - 1 && index <= end - 1) episodeState.push(item);
                return;
             });
@@ -51,7 +51,7 @@ function Episodes({ data }) {
          setEpisode(episodeState);
       }
    }, [data, page]);
-
+   //need optimize 
    const renderTab = () => {
       const pairEpisodeList = [];
       if (tabs.length === 0) return null;
@@ -87,8 +87,13 @@ function Episodes({ data }) {
          <div className={cx('wrapper')}>
             <div className={cx('flex-block')}>
                {data.episodes.length > 0 && (
-                  <iframe src={src} frameBorder="0" className={cx('video')} allowFullScreen></iframe>
-               )} 
+                  <iframe
+                     src={src}
+                     frameBorder="0"
+                     className={cx('video', src && { skeletonLoad: 'skeleton-load' })}
+                     allowFullScreen
+                  ></iframe>
+               )}
                <div className={cx('wrap-info')}>
                   <p className={cx('info-title')}>Anime Info</p>
                   <div className={cx('info-block')}>
@@ -121,7 +126,7 @@ function Episodes({ data }) {
                         to={`/watch?id=${item.id}`}
                         onClick={() => animeContext.goToWatch(item.id)}
                      >
-                       <p className={cx('page-title')}> {item.number}</p>
+                        <p className={cx('page-title')}> {item.number}</p>
                      </Button>
                   ))}
                </div>

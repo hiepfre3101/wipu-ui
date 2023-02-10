@@ -34,9 +34,9 @@ const withValidate = (WrapComp) => {
          const regex = new RegExp(pattern, 'g');
          let errors = { ...initData };
          if (!regex.test(value)) {
-            errors[name] = `Incorrect`;
+            errors[name] = true;
          } else {
-            errors[name] = '';
+            errors[name] = false;
          }
          return errors;
       };
