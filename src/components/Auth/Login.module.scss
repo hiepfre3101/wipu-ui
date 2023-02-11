@@ -1,10 +1,15 @@
+@import '../../style/varibles';
 .form-wrapper{
     width: 90%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     gap:10px;
+    overflow: auto;
+    @include breakPoint(md){
+        width: 100%;
+        justify-content: center;
+    }
 }
 .other-login{
     display: flex;
@@ -80,35 +85,6 @@
      gap:10px;
   }  
  }
-.date-control{
-    width: 30%;
-    background-color: rgba(241,241,241,1);
-    border-radius: 5px;
-    position: relative;
-    & .select-input{ 
-        cursor: pointer;
-        width: 100%;
-        outline: none;
-        border: none;
-        background-color: transparent;
-        padding: 15px 10px; 
-        font-size: 1.5rem;
-    } 
-    &:focus .date-title{
-        outline: none;
-        border: none;
-        background-color: white;
-    }
-    & .date-title{
-    color: #9f9fa8;
-    }
-    & .icon{
-       position: absolute;
-       right: 2%;
-       top:35%;
-       transform: translate(-40%,-2%);
-    }
-}
 .input-block{
     height: 100%;
     display: flex;

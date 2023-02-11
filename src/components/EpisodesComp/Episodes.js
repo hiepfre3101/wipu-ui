@@ -90,7 +90,7 @@ function Episodes({ data }) {
                   <iframe
                      src={src}
                      frameBorder="0"
-                     className={cx('video', src && { skeletonLoad: 'skeleton-load' })}
+                     className={cx('video')}
                      allowFullScreen
                   ></iframe>
                )}

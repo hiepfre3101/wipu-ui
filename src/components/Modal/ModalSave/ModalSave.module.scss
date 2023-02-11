@@ -1,6 +1,11 @@
+@import '../../../style/varibles';
 .wrapper{
-    height: 80%;
+    height: 100%;
     padding: 3rem;
+    background-color: white;
+    @include breakPoint(md){
+        height: 80%;
+    }
 }
 .title{
     font-size: 2rem;
