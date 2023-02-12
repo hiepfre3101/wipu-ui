@@ -4,7 +4,7 @@ import classNames from 'classnames/bind';
 import styles from './Login.module.scss';
 import { Button } from '../Button';
 import { FormContext } from '../Context/FormContext';
-import withValidate from '../HOCs/withValidate';
+import withValidate from '../../HOCs/withValidate';
 import PwdInput from './PwdInput';
 
 const cx = classNames.bind(styles);

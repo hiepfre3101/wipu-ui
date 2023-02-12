@@ -5,7 +5,6 @@ import ReactDOM from 'react-dom';
 // @param : target : string -> use to custom portal, if you want to create portal in a HTML element with id or className
 function Portal({ children, target }) {
    const [root, setRoot] = useState();
-
    useEffect(() => {
       let portalRoot = document.querySelector(target);
       if (!portalRoot) {

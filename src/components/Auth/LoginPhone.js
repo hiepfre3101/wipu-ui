@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react';
 import styles from './Login.module.scss';
 import { Button } from '../Button';
 import { FormContext } from '../Context/FormContext';
-import withValidate from '../HOCs/withValidate';
+import withValidate from '../../HOCs/withValidate';
 import PwdInput from './PwdInput';
 
 const cx = classNames.bind(styles);
@@ -31,7 +31,7 @@ function LoginPhone({ props }) {
                   type="text"
                   className={cx('form-control')}
                   placeholder="Phone number"
-                  value={props.dataSubmit?.phoneNumber|| ''}
+                  value={props.dataSubmit?.phoneNumber || ''}
                   pattern="(84|0[3|5|7|8|9])+([0-9]{8})\b"
                   onChange={props.handleOnChange}
                   onBlur={props.handleValidate}
@@ -52,12 +52,7 @@ function LoginPhone({ props }) {
                Letters, numbers and special characters
             </li>
          </ul>
-         <Button
-            disabled={!props.checkDataSubmit()}
-            large
-            roundM
-            className={cx('submit-btn')}
-         >
+         <Button disabled={!props.checkDataSubmit()} large roundM className={cx('submit-btn')}>
             {formContext.status ? 'Login' : 'Sign up'}
          </Button>
       </form>

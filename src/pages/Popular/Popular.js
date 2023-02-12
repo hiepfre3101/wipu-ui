@@ -1,4 +1,4 @@
-import withContent from '~/components/HOCs/withContent';
+import withContent from '~/HOCs/withContent';
 import * as requestPopularAnime from '~/services/getPopularAnime';
 import PopularContent from '~/components/Popular/PopularContent';
 
@@ -7,7 +7,7 @@ const selectRequestPopularAnime = {
       return requestPopularAnime.getPopularAnime(props);
    },
 };
-const PopularAnime = withContent(PopularContent, selectRequestPopularAnime, true, [],'Popular');
+const PopularAnime = withContent(PopularContent, selectRequestPopularAnime, true, [], 'Popular');
 function Popular() {
    return <PopularAnime />;
 }

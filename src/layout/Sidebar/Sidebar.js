@@ -5,14 +5,14 @@ import { HomeIcon, StonkeIcon, GenreIcon } from '~/assets/Icon';
 import { FavoriteList } from '~/components/FavoriteList';
 import styles from './Sidebar.module.scss';
 import * as requestTopAnime from '~/services/topAnime';
-import withContent from '~/components/HOCs/withContent';
+import withContent from '~/HOCs/withContent';
 const cx = classNames.bind(styles);
 const selectRequestTopAnime = {
    getRequest: (props) => {
       return requestTopAnime.getTopAnime(props);
    },
 };
-const FavoriteAnime = withContent(FavoriteList,selectRequestTopAnime,false,[]);
+const FavoriteAnime = withContent(FavoriteList, selectRequestTopAnime, false, []);
 function Sidebar() {
    return (
       <div className={cx('wrapper')}>
@@ -20,12 +20,12 @@ function Sidebar() {
             <Button roundM leftIcon={<HomeIcon />} className={cx('nav-btn')} primary nonBg to={'/'}>
                Home
             </Button>
-               <Button roundM leftIcon={<StonkeIcon />} className={cx('nav-btn')} primary nonBg to={'/popular'}>
-                  Popular
-                   <svg width={24} height={24} className={cx('animate')}>
-                      <circle cx={12} cy={12} r={12} fill={'#99f6e4'}></circle>
-                    </svg>
-               </Button>
+            <Button roundM leftIcon={<StonkeIcon />} className={cx('nav-btn')} primary nonBg to={'/popular'}>
+               Popular
+               <svg width={24} height={24} className={cx('animate')}>
+                  <circle cx={12} cy={12} r={12} fill={'#99f6e4'}></circle>
+               </svg>
+            </Button>
             <Button roundM leftIcon={<GenreIcon />} className={cx('nav-btn')} primary nonBg to={'/genre'}>
                Genre
             </Button>

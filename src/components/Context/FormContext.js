@@ -23,11 +23,11 @@ const forms = [
       type: 'email-login',
       labelLogin: 'Log in ',
       labelSignup: 'Sign up',
-      element: <LoginEmail/>,
+      element: <LoginEmail />,
    },
 ];
 function FormContextProvider({ children }) {
-   const [historySteps, setHistorySteps] = useState([forms[0]]);
+   const [historySteps, setHistorySteps] = useState([forms.find((form) => form.type === 'default')]);
    const [status, setStatus] = useState(true); //status : true=login, false=signup
    const currentStep = historySteps[historySteps.length - 1];
    const handleChangeForm = (type) => {
@@ -38,10 +38,10 @@ function FormContextProvider({ children }) {
    };
    const resertStep = () => {
       setStatus(true);
-      setHistorySteps([forms[0]]);
+      setHistorySteps([forms.find((form) => form.type === 'default')]);
    };
    const handleBack = () => {
-      setHistorySteps([forms[0]]);
+      setHistorySteps([forms.find((form) => form.type === 'default')]);
    };
    const changeStatus = () => {
       setStatus(!status);
