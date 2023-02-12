@@ -84,9 +84,9 @@ function Episodes({ data }) {
       return (
          <div className={cx('wrapper')}>
             <div className={cx('flex-block')}>
-               {/* {data.episodes.length > 0 && (
+               {data.episodes.length > 0 && (
                   <iframe src={src} frameBorder="0" className={cx('video')} allowFullScreen></iframe>
-               )} */}
+               )}
                <div className={cx('wrap-info')}>
                   <p className={cx('info-title')}>Anime Info</p>
                   <div className={cx('info-block')}>
