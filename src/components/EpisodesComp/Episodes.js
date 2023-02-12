@@ -49,9 +49,7 @@ function Episodes({ data }) {
          setEpisode(episodeState);
       }
    }, [data, page]);
-   //need optimize
    const renderTab = () => {
-      console.log('render');
       const pairEpisodeList = [];
       let startEpisode = 1;
       for (let i = 0; i < tabs; i++) {
@@ -109,7 +107,7 @@ function Episodes({ data }) {
             </div>
             <div className={cx('list-page-block')}>
                <div className={cx('title')}>Episode {animeContext.numberEpisode}</div>
-               <div className={cx('tab-page')}>{renderTab}</div>
+               <div className={cx('tab-page')}>{renderTab()}</div>
                <div className={cx('list-page')}>
                   {episode.map((item) => (
                      <Button
