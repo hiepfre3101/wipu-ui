@@ -1,6 +1,7 @@
 @import '../../style/varibles';
 .wrapper{
     max-width: 100%;
+    min-height: 100vh;
     background: var(--bg-color);
     padding-right: 0px;
     @include breakPoint(lg){
@@ -23,6 +24,7 @@
     position: fixed;
     left: 25px;
     top:23px;
+    bottom: 10px;
 }
 .container{
     position: relative;
