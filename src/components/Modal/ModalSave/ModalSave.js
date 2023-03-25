@@ -25,6 +25,7 @@ function ModalSave() {
      setAnimes(animeListInLocal);
    }
    renderLocalStorage();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    },[localStorage.length])
    const removeAnime = (id)=>{
       const anime = localStorage.getItem(id);

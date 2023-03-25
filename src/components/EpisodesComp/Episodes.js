@@ -83,6 +83,7 @@ function Episodes({ data }) {
          <div className={cx('wrapper')}>
             <div className={cx('flex-block')}>
                {data.episodes.length > 0 && (
+                  // eslint-disable-next-line jsx-a11y/iframe-has-title
                   <iframe src={src} frameBorder="0" className={cx('video')} allowFullScreen></iframe>
                )}
                <div className={cx('wrap-info')}>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import ReactDOM from 'react-dom';
-
+import PropTypes from 'prop-types';
 // @param : target : string -> use to custom portal, if you want to create portal in a HTML element with id or className
 function Portal({ children, target }) {
    const [root, setRoot] = useState();
@@ -25,5 +25,8 @@ function Portal({ children, target }) {
    }
    return ReactDOM.createPortal(children, root);
 }
-
+Portal.propTypes = {
+   children: PropTypes.node,
+   target: PropTypes.string,
+};
 export default Portal;

@@ -58,7 +58,7 @@ function SeasonContent({ data, hasPage, page, handleNext, handlePrev }) {
    );
 }
 SeasonContent.propTypes = {
-   data: PropTypes.object,
+   data: PropTypes.object.isRequired,
    page: PropTypes.number,
    handleNext: PropTypes.func,
    handlePrev: PropTypes.func,

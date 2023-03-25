@@ -1,6 +1,6 @@
 import withContent from '~/HOCs/withContent';
 import * as allGenresRequest from '~/services/getAllGenres';
-import GenrePage from '~/components/GenrePage/GenrePage';
+import GenreList from '~/components/GenrePage/GenreList';
 
 const selectRequestAllGenres = {
    getRequest: (props) => {
@@ -8,8 +8,8 @@ const selectRequestAllGenres = {
    },
 };
 
-const GenreSelect = withContent(GenrePage, selectRequestAllGenres, false, []);
-function Genre({ forwardRef }) {
+const GenreSelect = withContent(GenreList, selectRequestAllGenres, false, []);
+function Genre() {
    return <GenreSelect />;
 }
 
